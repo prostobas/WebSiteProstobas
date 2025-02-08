@@ -1,0 +1,1447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    padding-top: 80px;
+    background: #000000;
+}
+
+header {
+    background-color: #000000;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.menu-btn {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Добавляем новую анимацию для пунктов меню */
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+}
+
+.nav-menu a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-menu a:hover {
+    color: var(--light-purple);
+    text-shadow: 0 0 8px rgba(147, 112, 219, 0.8);
+    letter-spacing: 1px;
+}
+
+.nav-menu li {
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-menu li:hover {
+    transform: translateY(-3px);
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 80px; /* Уменьшаем отступ сверху */
+    }
+
+    .menu-btn {
+        display: block;
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        color: white;
+        font-size: 2rem;
+        z-index: 1001;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1001;
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+    }
+
+    .nav-menu ul {
+        width: 100%;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nav-menu a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 280px;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: linear-gradient(45deg, #4169E1, #1E90FF);
+        box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
+    }
+
+    /* Разные цвета для кнопок */
+    .nav-menu li:nth-child(2) a {
+        background: linear-gradient(45deg, #FF4500, #FF8C00);
+        box-shadow: 0 5px 15px rgba(255, 69, 0, 0.3);
+    }
+
+    .nav-menu li:nth-child(3) a {
+        background: linear-gradient(45deg, #32CD32, #228B22);
+        box-shadow: 0 5px 15px rgba(50, 205, 50, 0.3);
+    }
+
+    .nav-menu li:nth-child(4) a {
+        background: linear-gradient(45deg, #FF1493, #C71585);
+        box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
+    }
+
+    .nav-menu li:nth-child(5) a {
+        background: linear-gradient(45deg, #9400D3, #8A2BE2);
+        box-shadow: 0 5px 15px rgba(148, 0, 211, 0.3);
+    }
+
+    .logo {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-card {
+        height: auto;
+        min-height: calc(100vh - 80px);
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .section:not(#home) .section-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .section:not(#home) .card-image {
+        width: 100%;
+        height: 300px;
+    }
+
+    .section:not(#home) .card-text {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .card-text h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .card-text p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    /* Стили для первого блока на мобильных */
+    #home .section-card {
+        padding: 10px 0 20px 0;
+    }
+
+    #home .card-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 10px 0 20px 0;
+    }
+
+    #home .card-text {
+        padding: 10px 0 20px 0;
+    }
+
+    #home .card-text h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    #home .card-text p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+
+    /* Стили для кнопки на мобильных */
+    .purple-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    /* Убираем градиент на мобильных */
+    .card-text::before {
+        display: none;
+    }
+
+    /* Центрирование контента на мобильных */
+    .card-text {
+        text-align: center;
+        align-items: center;
+    }
+}
+
+/* Исправляем отступы для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    .section-card {
+        padding: 15px;
+    }
+
+    .card-text {
+        padding: 15px;
+    }
+
+    #home .card-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    #home .card-text h2 {
+        font-size: 1.8rem;
+    }
+
+    #home .section-card {
+        padding: 10px;
+    }
+}
+
+/* Обновленные стили для футера */
+.footer {
+    background-color: #000000;
+    padding: 30px 0;
+    margin: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section {
+    text-align: center;
+}
+
+.footer-section h3 {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #FFFFFF;
+    font-size: 0.9rem;
+}
+
+/* Обновляем стили для социальных иконок */
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+}
+
+.social-btn span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Цвета для разных соцсетей */
+.social-btn.vk {
+    background: #4C75A3;
+}
+
+.social-btn.telegram {
+    background: #0088cc;
+}
+
+.social-btn.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer {
+        padding: 40px 0 20px;
+    }
+}
+
+main {
+    flex: 1;
+    background-color: #000000;
+    padding: 0;
+    margin: 0;
+}
+
+/* Обновляем стили для основного контейнера */
+.horizontal-scroll {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Обновляем стили для контейнера с секциями */
+.sections-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0; /* Убираем все отступы */
+}
+
+/* Обновляем стили для секций */
+.section {
+    min-height: auto;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    margin: 0;
+    padding: 5px 0;
+}
+
+/* Обновляем стили для контейнеров */
+.section-content {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5px 0;
+}
+
+/* Обновляем стили для карточек */
+.section-card {
+    width: 100%;
+    height: auto;
+    margin: 5px 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Обновляем стили для текстовых блоков */
+.card-text {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Убираем фиксированные высоты */
+.about-grid,
+.blog-grid,
+.project-grid,
+.contact-container {
+    height: auto;
+    margin: 5px 0;
+    padding: 0;
+}
+
+/* Убираем min-height везде */
+#home.section,
+.section:not(#home),
+.section-card,
+.card-text {
+    min-height: auto;
+}
+
+/* Специальные стили для первого блока */
+#home.section {
+    padding: 10px 0 20px 0;
+}
+
+#home .section-card {
+    padding: 10px 0 20px 0;
+}
+
+#home .card-image {
+    margin: 10px 0 20px 0;
+}
+
+#home .card-text {
+    padding: 10px 0 20px 0;
+}
+
+/* Убираем градиенты и фоновые цвета */
+.section:nth-child(odd),
+.section:nth-child(even) {
+    background: #000000;
+}
+
+/* Стили для первого блока */
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+#home .section-card {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    gap: 20px;
+}
+
+#home .card-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--bright-purple);
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0;
+}
+
+#home .card-text {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+#home .card-text h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(45deg, var(--bright-purple), var(--bright-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+#home .card-text p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #cccccc;
+    text-align: center;
+    max-width: 600px;
+}
+
+#home .purple-btn {
+    margin: 0;
+    padding: 18px 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, var(--deep-purple), var(--bright-purple));
+    border: none;
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Медиа-запросы */
+@media screen and (max-width: 768px) {
+    #home {
+        padding: 10px 0;
+    }
+
+    #home .section-card {
+        padding: 10px 0 20px 0;
+    }
+
+    #home .card-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    #home .card-text h2 {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+
+    #home .card-text p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+}
+
+/* Стили для остальных блоков */
+.section:not(#home) .section-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Центрирование контента внутри карточек */
+.section:not(#home) .card-text {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Обновляем стили для сеток */
+.about-grid,
+.blog-grid,
+.project-grid {
+    margin: 5px 0;
+    padding: 0;
+    gap: 0;
+}
+
+/* Обновляем отступы для контактной формы */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 30px;
+    background: rgba(65, 105, 225, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    background: rgba(65, 105, 225, 0.2);
+}
+
+.contact-item i {
+    font-size: 30px;
+    color: #4169E1;
+}
+
+.contact-text h3 {
+    color: #4169E1;
+    margin-bottom: 5px;
+}
+
+.contact-text p {
+    color: #FFFFFF !important;
+    font-size: 1.1rem;
+}
+
+/* Убираем лишние стили позиционирования */
+.card-text::before {
+    display: none;
+}
+
+/* Обновляем стили для текста в темных секциях */
+.section:nth-child(even) .card-text {
+    background: transparent;
+    color: white;
+}
+
+.section:nth-child(even) .card-text h2 {
+    color: var(--light-purple);
+    text-shadow: 0 0 10px rgba(147, 112, 219, 0.5);
+}
+
+.section:nth-child(even) .card-text p {
+    color: var(--off-white);
+}
+
+.section:nth-child(even) .card-text::before {
+    background: linear-gradient(to right, transparent, #1a1a1a);
+}
+
+.card-image {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+    filter: brightness(1.05);
+}
+
+.section-card:hover .card-image img {
+    transform: scale(1);
+}
+
+.card-text {
+    width: 50%;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: transparent;
+    position: relative;
+    margin: 0;
+}
+
+.card-text::before {
+    content: '';
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, white);
+    z-index: 1;
+}
+
+.card-text h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-text h3,
+.about-item h3,
+.blog-post h3,
+.project-item h3,
+.contact-info h3,
+.footer-section h3 {
+    color: #4169E1; /* Синий цвет */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 600px;
+    color: #4169E1;
+}
+
+/* Стили для фиолетовой кнопки */
+.purple-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, var(--deep-purple), var(--bright-purple));
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+}
+
+.purple-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
+    background: linear-gradient(45deg, var(--bright-purple), var(--bright-blue));
+}
+
+.purple-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+}
+
+/* Убираем ненужные стили */
+.scroll-arrow,
+.scroll-indicator {
+    display: none;
+}
+
+/* Медиа-запросы */
+@media screen and (max-width: 1024px) {
+    .section-card {
+        width: 100%;
+    }
+}
+
+/* Стили для секций */
+.section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Стили для секции About */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+    color: white;
+}
+
+.about-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #111111;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-item:hover {
+    transform: translateY(-10px);
+}
+
+.about-item i {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-item p {
+    color: #cccccc;
+}
+
+/* Стили для секции Contacts */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    color: white;
+}
+
+.contact-info {
+    padding: 20px;
+    background-color: #111111;
+}
+
+.contact-info p {
+    margin: 15px 0;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #333;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    background-color: #111111;
+    color: white;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 12px 25px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #555;
+}
+
+/* Стили для секции Blog */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.blog-post {
+    background-color: #111111;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blog-post:hover {
+    transform: translateY(-10px);
+}
+
+.blog-post img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-post h3,
+.blog-post p {
+    padding: 15px;
+    color: white;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 15px;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #333;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    background: #333;
+    color: white;
+}
+
+/* Стили для секции Project */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.project-item {
+    background-color: #111111;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+}
+
+.project-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-item h3,
+.project-item p {
+    padding: 15px;
+    color: white;
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .about-grid,
+    .blog-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 0;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Удаляем старые стили для grid-контейнеров и элементов */
+.about-grid,
+.blog-grid,
+.project-grid,
+.contact-container {
+    display: none;
+}
+
+/* Обновляем стили для кнопок прокрутки */
+.scroll-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(75, 0, 130, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.scroll-arrow:hover {
+    background: rgba(75, 0, 130, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-left {
+    left: 30px;
+}
+
+.scroll-right {
+    right: 30px;
+}
+
+/* Сохраняем тот же дизайн для всех устройств */
+@media screen and (max-width: 1024px) {
+    .section-card {
+        width: 95%;
+    }
+
+    .card-text {
+        padding: 40px;
+    }
+
+    .card-text h2 {
+        font-size: 2rem;
+    }
+
+    .card-text p {
+        font-size: 1rem;
+    }
+
+    .scroll-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-card {
+        width: 90%;
+    }
+
+    .card-text {
+        padding: 30px;
+    }
+
+    .scroll-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+/* Медиа-запросы для маленьких экранов */
+@media screen and (max-width: 320px) {
+    #home .card-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    #home .card-text h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Медиа-запросы */
+@media screen and (max-width: 768px) {
+    .sections-container {
+        padding: 0; /* Убираем отступы на мобильных */
+    }
+
+    .section {
+        padding: 0;
+    }
+}
+
+/* Обновляем цветовую схему */
+:root {
+    --deep-purple: #4B0082;
+    --bright-purple: #8A2BE2;
+    --light-purple: #9370DB;
+    --deep-blue: #191970;
+    --bright-blue: #4169E1;
+    --pure-white: #FFFFFF;
+    --off-white: #F8F8FF;
+    --deep-black: #0A0A0A;
+}
+
+/* Убираем градиент с заголовков */
+#home .card-text h2 {
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+/* Стили для всех заголовков */
+h2, 
+.card-text h2,
+.section h2,
+.footer-section h2 {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: #FFFFFF;
+}
+
+/* Стили для всего текста под заголовками */
+p,
+.card-text p,
+.about-item p,
+.blog-post p,
+.project-item p,
+.contact-info p,
+.footer-section p,
+.info-text p {
+    color: #4169E1;
+}
+
+/* Стили для подзаголовков */
+h3,
+.card-text h3,
+.about-item h3,
+.blog-post h3,
+.project-item h3,
+.contact-info h3,
+.footer-section h3,
+.info-text h3 {
+    color: #4169E1;
+}
+
+/* Обновляем стили для домашней секции */
+#home .card-text h2 {
+    color: #FFFFFF;
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: #FFFFFF;
+}
+
+#home .card-text p {
+    color: #4169E1;
+}
+
+/* Стили для ленты-разделителя */
+.ribbon {
+    width: 100%;
+    height: 60px;
+    background: #4169E1;
+    overflow: hidden;
+    position: relative;
+}
+
+.ribbon-content {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: fit-content;
+    height: 100%;
+    animation: ribbonScroll 20s linear infinite;
+}
+
+.ribbon span {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 30px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+@keyframes ribbonScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Добавляем эффект при наведении */
+.ribbon:hover .ribbon-content {
+    animation-play-state: paused;
+}
+
+/* Убираем отступы у заголовков и параграфов */
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Обновленные стили для контактов */
+.contact-description {
+    color: #FFFFFF !important;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 30px;
+    background: rgba(65, 105, 225, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    background: rgba(65, 105, 225, 0.2);
+}
+
+.contact-item i {
+    font-size: 30px;
+    color: #4169E1;
+}
+
+.contact-text h3 {
+    color: #4169E1;
+    margin-bottom: 5px;
+}
+
+.contact-text p {
+    color: #FFFFFF !important;
+    font-size: 1.1rem;
+}
+
+/* Стили для контейнера лент */
+.ribbon-container {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    overflow: visible;
+    margin: 10px 0;
+}
+
+/* Общие стили для лент */
+.ribbon {
+    width: 105%; /* Уменьшаем ширину */
+    height: 30px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+}
+
+/* Стили для левой ленты */
+.ribbon-left {
+    transform: skewY(3deg); /* Уменьшаем угол наклона */
+    left: -2.5%; /* Уменьшаем отступ слева */
+    z-index: 2;
+}
+
+/* Стили для правой ленты */
+.ribbon-right {
+    transform: skewY(-3deg); /* Уменьшаем угол наклона */
+    right: -2.5%; /* Уменьшаем отступ справа */
+    z-index: 1;
+}
+
+/* Обновляем позиционирование контента */
+.ribbon-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 100%;
+    animation: ribbonScroll 20s linear infinite;
+}
+
+/* Обновляем стили для текста в лентах */
+.ribbon span {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 20px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    line-height: 30px;
+}
+
+/* Обновляем отступы для всех секций */
+.section {
+    padding: 5px 0;
+}
+
+.section-content {
+    padding: 5px 0;
+}
+
+.section-card {
+    padding: 5px;
+}
+
+/* Обновляем отступы для контента */
+.card-text {
+    padding: 5px 0;
+}
+
+.about-grid,
+.blog-grid,
+.project-grid,
+.contact-container {
+    margin: 5px 0;
+}
+
+/* Разные цвета для лент после каждого блока */
+/* После HOME */
+#home + .ribbon-container .ribbon-left { background: #4169E1; }
+#home + .ribbon-container .ribbon-right { background: #8A2BE2; }
+
+/* После ABOUT */
+#about + .ribbon-container .ribbon-left { background: #FF4500; }
+#about + .ribbon-container .ribbon-right { background: #FF8C00; }
+
+/* После CONTACTS */
+#contacts + .ribbon-container .ribbon-left { background: #32CD32; }
+#contacts + .ribbon-container .ribbon-right { background: #228B22; }
+
+/* После BLOG */
+#blog + .ribbon-container .ribbon-left { background: #FF1493; }
+#blog + .ribbon-container .ribbon-right { background: #C71585; }
+
+.ribbon-left .ribbon-content {
+    animation-direction: normal;
+}
+
+.ribbon-right .ribbon-content {
+    animation-direction: reverse;
+}
+
+/* Запрещаем горизонтальную прокрутку */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Обновленные стили для мобильного меню */
+@media screen and (max-width: 768px) {
+    .menu-header {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-logo {
+        color: #4169E1;
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-shadow: 0 0 10px rgba(65, 105, 225, 0.5);
+    }
+
+    .menu-close {
+        color: #FFFFFF;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .nav-menu ul {
+        width: 100%;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nav-menu a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 280px;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: linear-gradient(45deg, #4169E1, #1E90FF);
+        box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
+    }
+
+    /* Разные цвета для кнопок */
+    .nav-menu li:nth-child(2) a {
+        background: linear-gradient(45deg, #FF4500, #FF8C00);
+        box-shadow: 0 5px 15px rgba(255, 69, 0, 0.3);
+    }
+
+    .nav-menu li:nth-child(3) a {
+        background: linear-gradient(45deg, #32CD32, #228B22);
+        box-shadow: 0 5px 15px rgba(50, 205, 50, 0.3);
+    }
+
+    .nav-menu li:nth-child(4) a {
+        background: linear-gradient(45deg, #FF1493, #C71585);
+        box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
+    }
+
+    .nav-menu li:nth-child(5) a {
+        background: linear-gradient(45deg, #9400D3, #8A2BE2);
+        box-shadow: 0 5px 15px rgba(148, 0, 211, 0.3);
+    }
+}

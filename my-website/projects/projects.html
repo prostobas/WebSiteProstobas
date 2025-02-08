@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - PROSTOBAS</title>
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo">PROSTOBAS</h1>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="../home/home.html">HOME</a></li>
+                <li><a href="../about/about.html">ABOUT US</a></li>
+                <li><a href="../contacts/contacts.html">CONTACTS</a></li>
+                <li><a href="../blog/blog.html">BLOG</a></li>
+                <li><a href="projects.html">PROJECT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects-section">
+            <div class="projects-content">
+                <h2>Наши Проекты</h2>
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="web">Веб-разработка</button>
+                    <button class="filter-btn" data-filter="mobile">Мобильные приложения</button>
+                    <button class="filter-btn" data-filter="design">Дизайн</button>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/400x300" alt="Project 1">
+                            <div class="project-overlay">
+                                <a href="#" class="view-project">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Корпоративный сайт</h3>
+                            <p>Веб-разработка</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="mobile">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/400x300" alt="Project 2">
+                            <div class="project-overlay">
+                                <a href="#" class="view-project">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Мобильное приложение</h3>
+                            <p>Мобильная разработка</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="design">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/400x300" alt="Project 3">
+                            <div class="project-overlay">
+                                <a href="#" class="view-project">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>UI/UX Дизайн</h3>
+                            <p>Дизайн</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Тот же футер, что и в home.html -->
+    </footer>
+    <script src="../script.js"></script>
+    <script src="projects.js"></script>
+</body>
+</html> 
