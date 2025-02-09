@@ -1388,160 +1388,81 @@ h2,
 
 .settings-card {
     background: rgba(18, 18, 18, 0.95);
-    border-radius: 15px;
-    padding: 25px;
+    border-radius: 20px;
+    padding: 30px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
-.settings-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+.gradient-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(45deg, 
+        rgba(65, 105, 225, 0.1), 
+        rgba(50, 205, 50, 0.1), 
+        rgba(255, 20, 147, 0.1), 
+        rgba(255, 140, 0, 0.1)
+    );
+    filter: blur(10px);
+    z-index: 0;
+}
+
+.copy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #2f63ff, #1E90FF);
+    border: none;
+    border-radius: 25px;
     color: #FFFFFF;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(45deg, #1E90FF, #2f63ff);
+    transform: translateY(-2px);
+}
+
+.support-message {
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.support-message i {
+    color: #FF6B6B;
+}
+
+.support-message:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 .settings-field {
+    position: relative;
+    z-index: 1;
     margin-bottom: 15px;
 }
 
-.settings-field label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #FFFFFF;
-    margin-bottom: 15px;
-}
-
-.name-value {
-    color: #FFFFFF;
-    font-size: 0.9rem;
-    margin-left: auto;
-}
-
-.email-value {
-    color: rgba(65, 105, 225, 0.9);
-    font-size: 0.9rem;
-    margin-left: auto;
-}
-
-.info-gradient-box {
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(45deg, #FF69B4, #FF8C00, #4169E1, #32CD32);
-    border-radius: 15px;
-    margin-top: 20px;
-}
-
-/* Стили для блока Usage с социальными сетями */
-.usage-stats {
-    color: #FFFFFF;
-}
-
-.usage-header {
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    text-decoration: none;
-    color: #FFFFFF;
-    transition: all 0.3s ease;
-}
-
-.social-link:hover {
-    background: rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.social-link i {
-    font-size: 1.5rem;
-    width: 30px;
-    text-align: center;
-}
-
-.social-username {
-    margin-left: auto;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-/* Стили для блока Account */
-.account-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.trial-badge {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-}
-
-.days-remaining {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.8rem;
-}
-
-.account-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.upgrade-btn {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
+.name-value, .email-value {
+    color: #2f63ff;
     font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.upgrade-btn.primary {
-    background: #FFFFFF;
-    color: #000000;
-}
-
-.upgrade-btn.secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: #FFFFFF;
-}
-
-.advanced-btn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background: none;
-    border: none;
-    color: #FFFFFF;
-    cursor: pointer;
-    padding: 5px 0;
-}
-
-/* Медиа-запросы */
-@media screen and (max-width: 768px) {
-    .settings-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .settings-section {
-        padding: 20px;
-    }
 }
 
 .settings-title {
@@ -1602,22 +1523,23 @@ h2,
 }
 
 .get-started-btn {
-    width: fit-content;
-    padding: 8px 16px;
-    border-radius: 5px;
+    display: inline-block;
+    padding: 12px 24px;
+    background: #4169E1;
+    color: #FFFFFF;
+    text-decoration: none;
     border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
-    font-family: monospace;
-    text-transform: uppercase;
-    background: #FFFFFF;
-    color: #000000;
+    text-align: center;
 }
 
 .get-started-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: #1E90FF;
+    transform: translateY(-2px);
 }
 
 /* Стили для кнопки Download */
@@ -2162,4 +2084,388 @@ html {
 /* Добавляем отступ сверху для учета фиксированного header */
 #about, #contacts {
     scroll-margin-top: 80px; /* Высота header */
+}
+
+/* Стили для секции поддержки */
+.support-section {
+    padding: 80px 20px;
+    background: #000000;
+}
+
+.support-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.support-title {
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.support-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.support-grid {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.support-card {
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #4169E1;
+    margin-bottom: 20px;
+}
+
+.support-card h3 {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.card-number {
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    font-family: monospace;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.card-name {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.copy-btn, .support-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover, .support-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Медиа-запросы */
+@media screen and (max-width: 768px) {
+    .support-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .support-title {
+        font-size: 2rem;
+    }
+
+    .card-number {
+        font-size: 1.1rem;
+    }
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #4169E1;
+    margin-bottom: 20px;
+}
+
+.card-number {
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    font-family: monospace;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.card-name {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.settings-card {
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(26, 170, 236, 0.486);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-status {
+    color: #2f63ff; /* Королевский синий */
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: block;
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+.project-status:hover {
+    opacity: 1;
+}
+
+/* Стили для основных карточек в секции контактов */
+.settings-card {
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(26, 170, 236, 0.486);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Стили для полей с информацией */
+.settings-field {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+}
+
+.name-value, .email-value {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+/* Стили для градиентного блока */
+.gradient-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(45deg, 
+        rgba(65, 105, 225, 0.1), 
+        rgba(50, 205, 50, 0.1), 
+        rgba(255, 20, 147, 0.1), 
+        rgba(255, 140, 0, 0.1)
+    );
+    z-index: 0;
+}
+
+/* Стили для блока с деталями карты */
+.card-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: transparent;
+    margin-top: 20px;
+}
+
+/* Стили для кнопки копирования */
+.copy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #2f63ff, #1E90FF);
+    border: none;
+    border-radius: 25px;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(45deg, #1E90FF, #2f63ff);
+    transform: translateY(-2px);
+}
+
+/* Стили для сообщения о поддержке */
+.support-message {
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.support-message i {
+    color: #FF6B6B;
+}
+
+.settings-card h3 {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Стили для секции партнеров */
+.partners-section {
+    padding: 80px 20px;
+    background: #000000;
+}
+
+.partners-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.partners-title {
+    color: #FFFFFF;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.partner-card {
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(26, 170, 236, 0.486);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+}
+
+.partner-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid rgba(26, 170, 236, 0.486);
+}
+
+.partner-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.partner-card h3 {
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.partner-role {
+    color: #2f63ff;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.partner-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.partner-actions {
+    margin-top: auto;
+}
+
+.partner-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #2f63ff, #1E90FF);
+    border: none;
+    border-radius: 25px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.partner-link:hover {
+    background: linear-gradient(45deg, #1E90FF, #2f63ff);
+    transform: translateY(-2px);
+}
+
+/* Адаптивность для партнеров */
+@media screen and (max-width: 1024px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .partners-title {
+        font-size: 1.8rem;
+    }
 }
