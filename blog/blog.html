@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - PROSTOBAS</title>
-    <link rel="stylesheet" href="../index.css">
+    <title>PROSTOBAS - Блог</title>
+    <link rel="stylesheet" href="../components.css">
     <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -15,71 +15,220 @@
             <i class="fas fa-bars"></i>
         </div>
         <nav class="nav-menu">
+            <div class="menu-header">
+                <div class="menu-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
             <ul>
-                <li><a href="../home/home.html">HOME</a></li>
-                <li><a href="../about/about.html">ABOUT US</a></li>
-                <li><a href="../contacts/contacts.html">CONTACTS</a></li>
-                <li><a href="blog.html">BLOG</a></li>
-                <li><a href="../projects/projects.html">PROJECT</a></li>
+                <li data-tooltip="Вернуться на главную"><a href="../index.html">HOME</a></li>
+                <li data-tooltip="Узнать больше обо мне"><a href="../index.html">ABOUT US</a></li>
+                <li data-tooltip="Связаться со мной"><a href="../index.html">CONTACTS</a></li>
+                <li data-tooltip="Читать мой блог"><a href="blog.html">BLOG</a></li>
+                <li data-tooltip="Посмотреть проекты"><a href="../projects/projects.html">PROJECT</a></li>
             </ul>
+            <div class="mobile-footer">
+                <div class="social-links">
+                    <a href="#" class="social-btn vk">
+                        <i class="fab fa-vk"></i>
+                        <span>VK</span>
+                    </a>
+                    <a href="#" class="social-btn telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="#" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
         </nav>
     </header>
 
     <main>
         <section class="blog-section">
             <div class="blog-content">
-                <h2>Наш Блог</h2>
-                <div class="blog-grid">
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="https://via.placeholder.com/400x250" alt="Blog 1">
-                        </div>
-                        <div class="blog-info">
-                            <span class="date">15 Марта 2024</span>
-                            <h3>Инновации в технологиях</h3>
-                            <p>Как новые технологии меняют нашу жизнь и бизнес...</p>
-                            <a href="#" class="read-more">Читать далее</a>
-                        </div>
-                    </article>
+                <h1>Blog</h1>
+                <p class="subtitle">Compiled notes from the team</p>
 
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="https://via.placeholder.com/400x250" alt="Blog 2">
+                <h2>Featured</h2>
+                <div class="featured-grid">
+                    <div class="blog-card">
+                        <h3>Character Prefix Conditioning</h3>
+                        <p>A clever algorithm for more accurate code completion sampling.</p>
+                        <a href="character-prefix.html" class="read-btn">
+                            <i class="fas fa-eye"></i>
+                            Читать
+                        </a>
+                        <div class="blog-meta">
+                            <div class="author">
+                                <img src="../Image/logo/logo.jpg" alt="Jacob">
+                                <div class="author-info">
+                                    <span>By Jacob</span>
+                                    <span class="read-time">2 minutes read</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="blog-info">
-                            <span class="date">10 Марта 2024</span>
-                            <h3>Тренды в дизайне</h3>
-                            <p>Современные тенденции в веб-дизайне и UI/UX...</p>
-                            <a href="#" class="read-more">Читать далее</a>
-                        </div>
-                    </article>
+                    </div>
 
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="https://via.placeholder.com/400x250" alt="Blog 3">
+                    <div class="blog-card">
+                        <h3>Inference Characteristics of Llama</h3>
+                        <p>A primer on inference math and an examination of the surprising costs of Llama.</p>
+                        <a href="llama-inference.html" class="read-btn">
+                            <i class="fas fa-eye"></i>
+                            Читать
+                        </a>
+                        <div class="blog-meta">
+                            <div class="author">
+                                <img src="../Image/logo/logo.jpg" alt="Aman">
+                                <div class="author-info">
+                                    <span>By Aman</span>
+                                    <span class="read-time">19 minutes read</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="blog-info">
-                            <span class="date">5 Марта 2024</span>
-                            <h3>Будущее разработки</h3>
-                            <p>Что ждет индустрию разработки в ближайшие годы...</p>
-                            <a href="#" class="read-more">Читать далее</a>
-                        </div>
-                    </article>
+                    </div>
                 </div>
-                <div class="blog-pagination">
-                    <button class="page-btn active">1</button>
-                    <button class="page-btn">2</button>
-                    <button class="page-btn">3</button>
-                    <button class="page-btn next"><i class="fas fa-chevron-right"></i></button>
+
+                <h2>All posts</h2>
+                <div class="posts-grid">
+                    <div class="blog-card">
+                        <h3>Series B and Automating Code</h3>
+                        <p>We've raised $105M to further our mission of automating code.</p>
+                        <a href="series-b.html" class="read-btn">
+                            <i class="fas fa-eye"></i>
+                            Читать
+                        </a>
+                        <div class="blog-meta">
+                            <div class="author">
+                                <img src="../Image/logo/logo.jpg" alt="Anysphere Team">
+                                <div class="author-info">
+                                    <span>By Anysphere Team</span>
+                                    <span class="read-time">1 minutes read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <h3>A New Tab Model</h3>
+                        <p>Announcing the next-generation Cursor Tab model.</p>
+                        <a href="new-tab-model.html" class="read-btn">
+                            <i class="fas fa-eye"></i>
+                            Читать
+                        </a>
+                        <div class="blog-meta">
+                            <div class="author">
+                                <img src="../Image/logo/logo.jpg" alt="Phillip">
+                                <div class="author-info">
+                                    <span>By Phillip</span>
+                                    <span class="read-time">3 minutes read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <h3>Character Prefix Conditioning</h3>
+                        <p>A clever algorithm for more accurate code completion sampling.</p>
+                        <a href="character-prefix.html" class="read-btn">
+                            <i class="fas fa-eye"></i>
+                            Читать
+                        </a>
+                        <div class="blog-meta">
+                            <div class="author">
+                                <img src="../Image/logo/logo.jpg" alt="Jacob">
+                                <div class="author-info">
+                                    <span>By Jacob</span>
+                                    <span class="read-time">2 minutes read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <h3>Supermaven Joins Cursor</h3>
+                        <p>We're teaming up to build the next phase of AI coding.</p>
+                        <a href="supermaven-joins.html" class="read-btn">
+                            <i class="fas fa-eye"></i>
+                            Читать
+                        </a>
+                        <div class="blog-meta">
+                            <div class="author">
+                                <img src="../Image/logo/logo.jpg" alt="Michael">
+                                <div class="author-info">
+                                    <span>By Michael</span>
+                                    <span class="read-time">2 minutes read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <h3>Iterating with Shadow Workspaces</h3>
+                        <p>Hidden windows and kernel-level folder proxies to let AIs iterate on code without affecting the user.</p>
+                        <a href="shadow-workspaces.html" class="read-btn">
+                            <i class="fas fa-eye"></i>
+                            Читать
+                        </a>
+                        <div class="blog-meta">
+                            <div class="author">
+                                <img src="../Image/logo/logo.jpg" alt="Arvid">
+                                <div class="author-info">
+                                    <span>By Arvid</span>
+                                    <span class="read-time">19 minutes read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <h3>Series A and Magic</h3>
+                        <p>We've raised $60M to create a magical tool with the aim of writing the world's software.</p>
+                        <a href="series-a.html" class="read-btn">
+                            <i class="fas fa-eye"></i>
+                            Читать
+                        </a>
+                        <div class="blog-meta">
+                            <div class="author">
+                                <img src="../Image/logo/logo.jpg" alt="Anysphere Team">
+                                <div class="author-info">
+                                    <span>By Anysphere Team</span>
+                                    <span class="read-time">2 minutes read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <!-- Тот же футер, что и в home.html -->
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Социальные сети</h3>
+                <div class="social-links">
+                    <a href="#" class="social-btn vk">
+                        <i class="fab fa-vk"></i>
+                        <span>VK</span>
+                    </a>
+                    <a href="#" class="social-btn telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="#" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PROSTOBAS. Все права защищены.</p>
+        </div>
     </footer>
     <script src="../script.js"></script>
-    <script src="blog.js"></script>
 </body>
 </html> 

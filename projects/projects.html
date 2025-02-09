@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - PROSTOBAS</title>
-    <link rel="stylesheet" href="../index.css">
+    <title>PROSTOBAS - Проекты</title>
+    <link rel="stylesheet" href="../components.css">
     <link rel="stylesheet" href="projects.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -15,70 +15,82 @@
             <i class="fas fa-bars"></i>
         </div>
         <nav class="nav-menu">
+            <div class="menu-header">
+                <div class="menu-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
             <ul>
-                <li><a href="../home/home.html">HOME</a></li>
-                <li><a href="../about/about.html">ABOUT US</a></li>
-                <li><a href="../contacts/contacts.html">CONTACTS</a></li>
-                <li><a href="../blog/blog.html">BLOG</a></li>
-                <li><a href="projects.html">PROJECT</a></li>
+                <li data-tooltip="Вернуться на главную"><a href="../index.html">HOME</a></li>
+                <li data-tooltip="Узнать больше обо мне"><a href="../index.html">ABOUT US</a></li>
+                <li data-tooltip="Связаться со мной"><a href="../index.html">CONTACTS</a></li>
+                <li data-tooltip="Читать мой блог"><a href="../blog/blog.html">BLOG</a></li>
+                <li data-tooltip="Посмотреть проекты"><a href="projects.html">PROJECT</a></li>
             </ul>
+            <div class="mobile-footer">
+                <div class="social-links">
+
+                    <a href="#" class="social-btn vk">
+                        <i class="fab fa-vk"></i>
+                        <span>VK</span>
+                    </a>
+                    <a href="#" class="social-btn telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="#" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
         </nav>
     </header>
-
     <main>
         <section class="projects-section">
             <div class="projects-content">
-                <h2>Наши Проекты</h2>
-                <div class="projects-filter">
-                    <button class="filter-btn active" data-filter="all">Все</button>
-                    <button class="filter-btn" data-filter="web">Веб-разработка</button>
-                    <button class="filter-btn" data-filter="mobile">Мобильные приложения</button>
-                    <button class="filter-btn" data-filter="design">Дизайн</button>
-                </div>
+                <h1>The Cursor enterprise difference</h1>
+                <p class="subtitle">CTOs, VPEs, and DexEx leaders at scale trust Cursor to ship code faster.</p>
+
                 <div class="projects-grid">
-                    <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <img src="https://via.placeholder.com/400x300" alt="Project 1">
-                            <div class="project-overlay">
-                                <a href="#" class="view-project">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                            </div>
+                    <div class="project-card">
+                        <div class="card-icon">
+                            <i class="fas fa-cube"></i>
                         </div>
-                        <div class="project-info">
-                            <h3>Корпоративный сайт</h3>
-                            <p>Веб-разработка</p>
-                        </div>
+                        <h3>Measure increased developer productivity</h3>
+                        <p>Understand how your developers use AI in their workflows with detailed usage analytics.</p>
                     </div>
 
-                    <div class="project-card" data-category="mobile">
-                        <div class="project-image">
-                            <img src="https://via.placeholder.com/400x300" alt="Project 2">
-                            <div class="project-overlay">
-                                <a href="#" class="view-project">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                            </div>
+                    <div class="project-card">
+                        <div class="card-icon">
+                            <i class="fas fa-lock"></i>
                         </div>
-                        <div class="project-info">
-                            <h3>Мобильное приложение</h3>
-                            <p>Мобильная разработка</p>
-                        </div>
+                        <h3>Your code is never stored or used for training</h3>
+                        <p>We protect your code with our Privacy Mode Guarantee.</p>
                     </div>
 
-                    <div class="project-card" data-category="design">
-                        <div class="project-image">
-                            <img src="https://via.placeholder.com/400x300" alt="Project 3">
-                            <div class="project-overlay">
-                                <a href="#" class="view-project">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                            </div>
+                    <div class="project-card">
+                        <div class="card-icon">
+                            <i class="fas fa-star"></i>
                         </div>
-                        <div class="project-info">
-                            <h3>UI/UX Дизайн</h3>
-                            <p>Дизайн</p>
+                        <h3>Powered by the industry's leading AI models</h3>
+                        <p>Bring OpenAI, Anthropic, and Gemini models directly into your editor.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="card-icon">
+                            <i class="fas fa-cog"></i>
                         </div>
+                        <h3>Manage your team in one place</h3>
+                        <p>Yes, companies have access to SAML 2.0 and OIDC SSO integration with Just-in-Time authentication support.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="card-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Context-aware across your codebase</h3>
+                        <p>Large-scale indexing to get the most out of complex codebases.</p>
                     </div>
                 </div>
             </div>
@@ -86,9 +98,29 @@
     </main>
 
     <footer class="footer">
-        <!-- Тот же футер, что и в home.html -->
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Социальные сети</h3>
+                <div class="social-links">
+                    <a href="#" class="social-btn vk">
+                        <i class="fab fa-vk"></i>
+                        <span>VK</span>
+                    </a>
+                    <a href="#" class="social-btn telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="#" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PROSTOBAS. Все права защищены.</p>
+        </div>
     </footer>
     <script src="../script.js"></script>
-    <script src="projects.js"></script>
 </body>
 </html> 
