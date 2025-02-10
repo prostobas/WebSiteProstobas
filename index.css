@@ -3115,3 +3115,96 @@ html {
         border-bottom-right-radius: 15px;
     }
 }
+
+/* Общие стили для текстовых блоков */
+.profile-description, 
+.profile-bio,
+.profile-details,
+.profile-detail-item {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 0 15px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .profile-card {
+        width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .profile-info {
+        padding: 10px;
+    }
+
+    .profile-description {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .profile-detail-item {
+        font-size: 13px;
+    }
+
+    .profile-bio {
+        font-size: 14px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    .profile-card {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    .profile-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+/* Обновляем стили для статистики на маленьких экранах */
+@media screen and (max-width: 380px) {
+    .profile-top {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .profile-stats {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .stat-item {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .stat-number {
+        font-size: 1rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    /* Уменьшаем отступы в карточке профиля */
+    .profile-card {
+        padding: 15px 10px;
+    }
+
+    /* Убираем лишние отступы */
+    .profile-description, 
+    .profile-bio,
+    .profile-details,
+    .profile-detail-item {
+        padding: 0 5px;
+    }
+}
