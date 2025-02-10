@@ -646,10 +646,11 @@ main {
     background: rgba(18, 18, 18, 0.95);
     border-radius: 20px;
     padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(26, 170, 236, 0.486);
     display: flex;
     gap: 40px;
     align-items: center;
+    overflow: hidden;
 }
 
 .blog-card-content {
@@ -744,10 +745,10 @@ main {
     height: 400px;
     background: linear-gradient(
         45deg,
-        rgba(255, 20, 147, 0.8),  /* DeepPink */
-        rgba(255, 140, 0, 0.8),   /* DarkOrange */
-        rgba(65, 105, 225, 0.8),  /* RoyalBlue */
-        rgba(50, 205, 50, 0.8)    /* LimeGreen */
+        rgba(255, 20, 147, 0.8),
+        rgba(255, 140, 0, 0.8),
+        rgba(65, 105, 225, 0.8),
+        rgba(50, 205, 50, 0.8)
     );
     border-radius: 20px;
     flex-shrink: 0;
@@ -758,15 +759,29 @@ main {
 /* Медиа-запросы */
 @media screen and (max-width: 768px) {
     .blog-card {
-        flex-direction: column-reverse;
         padding: 20px;
         gap: 20px;
+        flex-direction: column;
     }
 
     .blog-gradient-box {
-        width: 100%;
-        height: 200px;
-        border-radius: 15px;
+        width: 100%; /* Изменяем ширину на 100% */
+        height: 200px; /* Фиксированная высота для мобильных */
+        margin: 10px 0; /* Добавляем отступы */
+        border-radius: 15px; /* Немного уменьшаем скругление */
+    }
+
+    .blog-card h3 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    .blog-gradient-box {
+        height: 150px; /* Уменьшаем высоту для маленьких экранов */
     }
 }
 
@@ -1256,16 +1271,70 @@ h2,
 }
 
 @media screen and (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
+    .projects-section {
+        overflow: visible;
     }
 
-    .projects-section h2 {
-        font-size: 2.5rem;
+    .projects-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 20px;
+        margin: 0;
+        -webkit-overflow-scrolling: touch;
     }
 
     .project-card {
+        min-width: 350px;
+        width: 92%;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        margin-right: 0;
         padding: 20px;
+    }
+
+    /* Стили для первой карточки */
+    .project-card:first-child {
+        margin-left: 20px;
+    }
+
+    /* Стили для последней карточки */
+    .project-card:last-child {
+        margin-right: 40px;
+    }
+
+    /* Показываем часть следующей карточки */
+    .projects-grid {
+        padding-right: 60px;
+    }
+
+    /* Обновляем стили заголовка секции */
+    .projects-section h2 {
+        font-size: 2rem;
+        padding: 0 20px;
+    }
+
+    .projects-section .subtitle {
+        padding: 0 20px;
+    }
+
+    /* Обновляем стили карточек */
+    .project-card {
+        padding: 20px;
+        height: auto;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    .project-card {
+        min-width: 330px;
+        width: 90%;
     }
 }
 
@@ -1390,7 +1459,7 @@ h2,
     background: rgba(18, 18, 18, 0.95);
     border-radius: 20px;
     padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(26, 170, 236, 0.486);
     position: relative;
     overflow: hidden;
 }
@@ -1422,7 +1491,6 @@ h2,
     border-radius: 25px;
     color: #FFFFFF;
     font-size: 0.9rem;
-    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -1637,6 +1705,7 @@ h2,
     margin-bottom: 20px;
 }
 
+/* Обновляем стили для списка функций */
 .features-list {
     list-style: none;
     padding: 0;
@@ -1646,16 +1715,28 @@ h2,
 .features-list li {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 15px;
-    color: rgba(255, 255, 255, 0.7);
-    font-family: monospace;
-    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Обновляем шрифт */
+    font-size: 0.95rem;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
 }
 
 .features-list i {
     color: #4CAF50;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .features-list li {
+        font-size: 0.9rem;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
 }
 
 .card-buttons {
@@ -1731,63 +1812,42 @@ h2,
 @media screen and (max-width: 768px) {
     .faq-section {
         padding: 40px 0;
-        overflow: hidden;
-    }
-
-    .faq-title {
-        font-size: 2rem;
-        margin-bottom: 40px;
-        padding: 0 20px;
+        overflow: visible;
     }
 
     .faq-grid {
         display: flex;
-        gap: 20px;
+        gap: 10px; /* Устанавливаем отступ между карточками */
         overflow-x: auto;
-        padding-left: 40px;
+        padding-left: 20px;
         padding-right: 20px;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        margin-bottom: 20px;
-        margin-left: 20px;
-        max-width: none;
     }
 
     .faq-card {
-        flex: 0 0 80%;
+        min-width: 300px;
+        width: 85%;
+        flex-shrink: 0;
         scroll-snap-align: start;
         padding: 25px;
-        min-height: 200px;
         height: auto;
-        display: flex;
-        flex-direction: column;
-        background: rgba(18, 18, 18, 0.95);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-right: 0; /* Убираем отрицательный margin */
     }
 
-    .faq-card h3 {
-        color: #FFFFFF;
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Отступ для первой карточки */
+    .faq-card:first-child {
+        margin-left: 20px;
     }
 
-    .faq-card p {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.95rem;
-        line-height: 1.5;
-        font-family: monospace;
+    /* Отступ для последней карточки */
+    .faq-card:last-child {
+        margin-right: 60px;
     }
 
-    /* Скрываем скроллбар */
-    .faq-grid::-webkit-scrollbar {
-        display: none;
-    }
-    
+    /* Показываем часть следующей карточки */
     .faq-grid {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+        padding-right: 40px; /* Уменьшаем правый отступ */
     }
 }
 
@@ -1800,17 +1860,33 @@ h2,
 .faq-title {
     font-size: 3rem;
     color: #FFFFFF;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     text-align: left;
     font-weight: bold;
-    padding-left: 20px;
+    margin-left: 20px;
+}
+
+.faq-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    text-align: left;
+    max-width: 800px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    line-height: 1.6;
 }
 
 @media screen and (max-width: 768px) {
     .faq-title {
         font-size: 2rem;
+        margin-bottom: 15px;
+        margin-left: 20px;
+    }
+
+    .faq-subtitle {
+        font-size: 1rem;
+        margin-left: 20px;
         margin-bottom: 30px;
-        padding-left: 10px;
     }
 }
 
@@ -1879,6 +1955,7 @@ h2,
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
+    gap: 15px; /* Добавляем отступ между именем и ролью */
 }
 
 .author-name {
@@ -1886,6 +1963,31 @@ h2,
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     letter-spacing: 1px;
+    min-width: 120px; /* Добавляем минимальную ширину для имени */
+}
+
+.author-role {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: right; /* Выравниваем роль по правому краю */
+    flex: 1; /* Позволяем роли занимать оставшееся пространство */
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .testimonial-author {
+        gap: 20px; /* Увеличиваем отступ на мобильных */
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .author-name {
+        min-width: 100px; /* Уменьшаем минимальную ширину на мобильных */
+    }
+
+    .author-role {
+        font-size: 0.8rem;
+    }
 }
 
 .company-logo {
@@ -2007,7 +2109,7 @@ h2,
 
 /* Стили для секции статистики */
 .stats-section {
-    padding: 80px 20px;
+    padding: 60px 20px;
     background: #000000;
 }
 
@@ -2020,7 +2122,7 @@ h2,
     font-size: 2.5rem;
     color: #FFFFFF;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     line-height: 1.3;
     max-width: 900px;
     margin-left: auto;
@@ -2040,26 +2142,31 @@ h2,
 }
 
 .stat-number {
-    font-size: 3.5rem;
-    font-weight: bold;
+    font-size: 6rem;
+    font-weight: 700;
     color: #FFFFFF;
     margin-bottom: 20px;
-    background: linear-gradient(45deg, #4169E1, #32CD32);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    line-height: 1;
 }
 
 .stat-description {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.5;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
-/* Медиа-запросы для адаптивности */
+/* Медиа-запросы для мобильных устройств */
 @media screen and (max-width: 768px) {
+    .stats-section {
+        padding: 40px 15px;
+    }
+
     .stats-title {
-        font-size: 2rem;
-        padding: 0 20px;
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        padding: 0 10px;
     }
 
     .stats-grid {
@@ -2068,11 +2175,29 @@ h2,
     }
 
     .stat-number {
-        font-size: 3rem;
+        font-size: 4.5rem;
+        margin-bottom: 15px;
+    }
+
+    .stat-description {
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 380px) {
+    .stats-title {
+        font-size: 1.6rem;
+    }
+
+    .stat-number {
+        font-size: 4rem;
     }
 
     .stat-description {
         font-size: 1rem;
+        padding: 0 15px;
     }
 }
 
@@ -2223,9 +2348,9 @@ html {
     align-items: center;
     gap: 10px;
     padding: 12px 24px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
+    background: linear-gradient(45deg, #2f63ff, #1E90FF);
+    border: none;
+    border-radius: 25px;
     color: #FFFFFF;
     font-size: 0.9rem;
     cursor: pointer;
@@ -2233,7 +2358,7 @@ html {
 }
 
 .copy-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(45deg, #1E90FF, #2f63ff);
     transform: translateY(-2px);
 }
 
@@ -2247,7 +2372,7 @@ html {
 }
 
 .project-status {
-    color: #2f63ff; /* Королевский синий */
+    color: #ffa600; /* Королевский синий */
     font-size: 0.9rem;
     font-weight: 500;
     display: block;
@@ -2467,5 +2592,526 @@ html {
     
     .partners-title {
         font-size: 1.8rem;
+    }
+}
+
+.footer {
+    background: #000000;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #FFFFFF;
+    font-size: 0.9rem;
+}
+
+/* Стили для подсказки о прокрутке */
+.scroll-hint {
+    display: none; /* По умолчанию скрываем подсказку */
+}
+
+/* Показываем подсказку только на мобильных устройствах */
+@media screen and (max-width: 768px) {
+    .scroll-hint {
+        display: flex;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        align-items: center;
+        gap: 8px;
+        margin: 10px 20px;
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        width: fit-content;
+    }
+
+    .scroll-hint i {
+        color: #2f63ff;
+        animation: slideRight 1.5s infinite;
+    }
+
+    @keyframes slideRight {
+        0% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(5px);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+}
+
+/* Стили для информации о городе */
+.partner-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    background: rgba(255, 140, 0, 0.1); /* Полупрозрачный оранжевый фон */
+    padding: 6px 12px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.partner-location i {
+    color: #FF8C00; /* Оранжевый цвет для иконки */
+    font-size: 0.9rem;
+}
+
+.partner-location {
+    color: #FF8C00; /* Оранжевый цвет для текста */
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Добавляем эффект при наведении */
+.partner-location:hover {
+    background: rgba(255, 140, 0, 0.15);
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
+}
+
+/* Обновляем стили для мобильной версии партнеров */
+@media screen and (max-width: 768px) {
+    .partners-section {
+        padding: 40px 0;
+        overflow: visible;
+    }
+
+    .partners-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 20px;
+        margin: 0;
+        -webkit-overflow-scrolling: touch;
+        padding-left: calc(50% - 155px); /* Обновляем отступ для более широких карточек */
+    }
+
+    .partner-card {
+        min-width: 310px; /* Увеличиваем с 280px до 310px */
+        width: 85%; /* Увеличиваем с 82% до 85% */
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        margin-right: 0;
+        padding: 20px;
+    }
+
+    /* Отступ для последней карточки */
+    .partner-card:last-child {
+        margin-right: calc(50% - 155px); /* Обновляем отступ */
+    }
+}
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    .partners-grid {
+        padding-left: calc(50% - 145px); /* Корректируем для меньших экранов */
+    }
+
+    .partner-card {
+        min-width: 290px; /* Увеличиваем с 260px до 290px */
+        width: 83%; /* Увеличиваем с 80% до 83% */
+    }
+
+    .partner-card:last-child {
+        margin-right: calc(50% - 145px);
+    }
+}
+
+/* Стили для кнопки профиля */
+.profile-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #2f63ff, #1E90FF);
+    border: none;
+    border-radius: 25px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(45deg, #1E90FF, #2f63ff);
+}
+
+/* Стили для оверлея профиля */
+.profile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, 
+        rgb(34, 92, 253) 0%,
+        rgb(166, 120, 252) 100%
+    );
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: hidden;
+}
+
+.profile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.profile-card {
+    padding: 25px 20px;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-top {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 25px;
+    padding-left: 10px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Добавляем для устранения возможных пробелов */
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .profile-avatar {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Обновляем стили для статистики */
+.profile-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    min-width: 70px;
+}
+
+.stat-number {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block; /* Добавляем блочное отображение */
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    display: block; /* Добавляем блочное отображение */
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .profile-top {
+        gap: 25px; /* Уменьшаем отступ между аватаром и статистикой */
+    }
+
+    .profile-stats {
+        gap: 20px;
+    }
+
+    .stat-item {
+        min-width: 70px; /* Уменьшаем минимальную ширину для мобильных */
+    }
+
+    .stat-number {
+        font-size: 1.1rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+}
+
+.profile-info {
+    margin-top: 20px;
+}
+
+.profile-name-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.profile-name-section h2 {
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.verified-badge {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+}
+
+.profile-bio {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Стили для кнопок */
+.profile-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.follow-btn, .message-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.follow-btn {
+    background: #FFFFFF;
+    color: #000000;
+}
+
+.message-btn {
+    background: #FFFFFF;
+    color: #000000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .profile-overlay.active {
+        transform: translateY(0); /* Показываем весь блок */
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-stats {
+        justify-content: center;
+    }
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (min-width: 769px) {
+    .profile-overlay {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 50px;
+        justify-content: center;
+    }
+
+    .profile-card {
+        height: auto;
+        border-radius: 20px;
+        padding: 40px;
+    }
+}
+
+/* Обновляем стили значка верификации */
+.verified-badge {
+    width: 20px;
+    height: 20px;
+    margin-left: 4px;
+}
+
+/* Обновляем стили кнопок */
+.follow-btn, .cancel-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.follow-btn {
+    background: #FFFFFF;
+    color: #000000;
+}
+
+.follow-btn i {
+    font-size: 0.9rem;
+}
+
+.follow-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-1px);
+}
+
+.cancel-btn {
+    background: transparent;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cancel-btn i {
+    font-size: 0.9rem;
+}
+
+.cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Убираем старую кнопку закрытия */
+.close-btn {
+    display: none;
+}
+
+/* Стили для дополнительной информации */
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+.profile-detail-item i {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.profile-detail-item a {
+    color: #2f63ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.profile-detail-item a:hover {
+    color: #1E90FF;
+    text-decoration: underline;
+}
+
+/* Обновляем отступы */
+.profile-bio {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .profile-details {
+        padding: 12px 0;
+        gap: 10px;
+    }
+
+    .profile-detail-item {
+        font-size: 0.9rem;
+    }
+}
+
+.profile-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+/* Обновляем отступ для bio */
+.profile-bio {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* Добавляем стили для плавного появления профилей партнеров */
+.profile-overlay {
+    /* ... существующие стили ... */
+    z-index: 1001; /* Увеличиваем z-index, чтобы профили были поверх всего */
+}
+
+/* Стили для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .profile-overlay {
+        height: 100vh; /* Изменяем с 75vh на 100vh */
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .profile-card {
+        height: 100%; /* Добавляем высоту 100% */
+        overflow-y: auto; /* Добавляем прокрутку если контент не помещается */
+        padding-bottom: 30px; /* Добавляем отступ снизу */
+    }
+}
+
+/* Медиа-запросы для iPhone SE и маленьких экранов */
+@media screen and (max-width: 380px) {
+    .profile-overlay {
+        height: 100vh;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
     }
 }

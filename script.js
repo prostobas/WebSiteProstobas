@@ -57,3 +57,56 @@ function copyToClipboard(text) {
         }, 2000);
     });
 }
+
+function toggleProfile() {
+    const overlay = document.getElementById('profileOverlay');
+    overlay.classList.toggle('active');
+    
+    if (overlay.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+// Функция для управления профилями партнеров
+function togglePartnerProfile(partner) {
+    const profileId = `profile${partner}`;
+    const profileElement = document.getElementById(profileId);
+    
+    // Закрываем все открытые профили кроме текущего
+    document.querySelectorAll('.profile-overlay').forEach(overlay => {
+        if (overlay.id !== profileId) {
+            overlay.classList.remove('active');
+        }
+    });
+
+    if (profileElement) {
+        profileElement.classList.toggle('active');
+        if (profileElement.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+}
+
+// Обновляем обработчики кликов для кнопок "Перейти"
+document.querySelectorAll('.partner-link').forEach((link, index) => {
+    link.onclick = (e) => {
+        e.preventDefault();
+        const partners = ['Alexander', 'Michael', 'Dmitry'];
+        togglePartnerProfile(partners[index]);
+    };
+});
+
+// Добавляем обработчик для всех кнопок закрытия через делегирование событий
+document.addEventListener('click', (e) => {
+    if (e.target.closest('.cancel-btn')) {
+        const profileOverlay = e.target.closest('.profile-overlay');
+        if (profileOverlay) {
+            profileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+});
