@@ -16,7 +16,6 @@
     display: block;
 }
 
-
 .stat-number {
     color: #FFFFFF;
     font-size: 1.2rem;
@@ -2210,7 +2209,7 @@ h2,
     }
 
     .stat-number {
-        font-size: 4.5rem;
+        font-size: 1.2rem;
         margin-bottom: 15px;
     }
 
