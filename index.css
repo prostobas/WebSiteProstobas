@@ -2733,7 +2733,7 @@ html {
         padding: 10px;
         margin: 0;
         -webkit-overflow-scrolling: touch;
-        padding-left: calc(50% - 145px); /* Обновляем отступ для более широких карточек */
+        padding-left: calc(5%); /* Обновляем отступ для более широких карточек */
     }
 
     .partner-card {
@@ -2753,10 +2753,6 @@ html {
 
 /* Для очень маленьких экранов */
 @media screen and (max-width: 480px) {
-    .partners-grid {
-        padding-left: calc(50% - 145px); /* Корректируем для меньших экранов */
-    }
-
     .partner-card {
         min-width: 290px; /* Увеличиваем с 260px до 290px */
         width: 83%; /* Увеличиваем с 80% до 83% */
@@ -3224,5 +3220,548 @@ html {
     .profile-bio,
     .profile-detail-item {
         padding: 0px;
+    }
+}
+
+.video-title {
+    font-size: 3.5rem;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    text-align: left;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.video-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-card {
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(141, 26, 235, 0.945);
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    height: auto; /* Меняем с фиксированной высоты на auto */
+    display: flex;
+    flex-direction: column;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 167.77%;
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    flex-shrink: 0;
+    max-height: 500px; /* Ограничиваем максимальную высоту видео */
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+    background-color: #000;
+}
+
+/* Стили для элементов управления видео */
+.video-wrapper video::-webkit-media-controls {
+    padding: 0;
+}
+
+.video-wrapper video::-webkit-media-controls-panel {
+    background: #00000000;
+}
+
+.video-info {
+    padding: 15px;
+    background: #121212; /* Более темный и контрастный фон */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+    position: relative; /* Добавляем для z-index */
+    z-index: 2;
+}
+
+.video-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.video-info p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.video-meta {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .video-card {
+        min-width: 290px;
+        width: 85%;
+        height: auto;
+        max-height: none;
+    }
+
+    .video-wrapper {
+        max-height: 450px;
+    }
+
+    .video-info {
+        min-height: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .video-card {
+        min-width: 260px;
+        width: 85%;
+    }
+
+    .video-wrapper {
+        max-height: 400px;
+    }
+
+    .video-info {
+        padding: 12px;
+        min-height: 90px;
+    }
+
+    .video-info h3 {
+        font-size: 1rem;
+    }
+
+    .video-info p {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .video-meta {
+        font-size: 0.7rem;
+    }
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .video-section {
+        padding: 40px 0;
+        overflow: visible;
+    }
+
+    .video-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding: 20px;
+        margin: 0;
+        -webkit-overflow-scrolling: touch;
+        padding-left: calc(5%); /* Центрирование первой карточки */
+    }
+
+    .video-card {
+        min-width: 290px;
+        width: 85%;
+        height: auto;
+        max-height: none;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+    }
+
+    /* Отступ для последней карточки */
+    .video-card:last-child {
+        margin-right: calc(50% - 145px);
+    }
+
+    /* Скрываем скроллбар */
+    .video-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .video-grid {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .video-wrapper {
+        max-height: 450px;
+    }
+
+    .video-info {
+        min-height: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .video-grid {
+        padding-left: calc(5%); /* Корректируем центрирование для маленьких экранов */
+    }
+
+    .video-card {
+        min-width: 260px;
+        width: 85%;
+    }
+
+    .video-card:last-child {
+        margin-right: calc(50% - 130px);
+    }
+
+    .video-wrapper {
+        max-height: 400px;
+    }
+
+    .video-info {
+        padding: 12px;
+        min-height: 90px;
+    }
+
+    .video-info h3 {
+        font-size: 1rem;
+    }
+
+    .video-info p {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .video-meta {
+        font-size: 0.7rem;
+    }
+}
+
+/* Стили для секции историй */
+.stories-section {
+    padding: 40px 20px;
+    background: #000000;
+    margin-top: 20px;
+}
+
+.stories-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stories-title {
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+.stories-grid {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 20px;
+}
+
+/* Скрываем скроллбар */
+.stories-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.stories-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.story-card {
+    min-width: 80px;
+    width: 80px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.story-card:hover {
+    transform: scale(1.05);
+}
+
+.story-image {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 3px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.story-image::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 50%;
+    border: 2px solid #000000;
+}
+
+.story-image video {
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    object-fit: cover;
+    border-radius: 50%;
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+.story-image.playing video {
+    display: block;
+}
+
+.story-overlay {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 50%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%);
+}
+
+.story-progress {
+    display: none; /* Скрываем прогресс-бар, он будет показываться только при воспроизведении */
+}
+
+.story-author {
+    position: static;
+    padding: 5px 0;
+    background: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.story-author span {
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 500;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.story-info {
+    display: none; /* Скрываем дополнительную информацию */
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .stories-section {
+        padding: 20px 0;
+    }
+
+    .stories-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .story-card {
+        min-width: 70px;
+        width: 70px;
+    }
+
+    .story-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .story-author span {
+        font-size: 0.7rem;
+        max-width: 70px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stories-grid {
+        gap: 12px;
+        padding-left: 15px;
+    }
+
+    .story-card {
+        min-width: 65px;
+        width: 65px;
+    }
+
+    .story-image {
+        width: 65px;
+        height: 65px;
+    }
+
+    .story-author span {
+        font-size: 0.65rem;
+        max-width: 65px;
+    }
+}
+
+/* Стили для модального окна историй */
+.story-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.story-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.story-modal-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+}
+
+.story-modal-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.story-modal-author img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #4169E1;
+}
+
+.story-modal-author span {
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.story-time {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+}
+
+.story-close {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+}
+
+.story-modal-video {
+    width: 100%;
+    height: 100vh;
+    max-height: 850px;
+    position: relative;
+    background: #000;
+}
+
+.story-modal-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 2;
+}
+
+.progress {
+    height: 100%;
+    background: #FFFFFF;
+    width: 0;
+    transition: width linear;
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .story-modal-content {
+        max-width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    .story-modal-video {
+        height: 100%;
     }
 }

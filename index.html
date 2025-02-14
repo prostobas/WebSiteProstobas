@@ -26,6 +26,7 @@
                 <li data-tooltip="Связаться со мной"><a href="#contacts">CONTACTS</a></li>
                 <li data-tooltip="Читать мой блог"><a href="blog/blog.html">BLOG</a></li>
                 <li data-tooltip="Посмотреть проекты"><a href="projects/projects.html">PROJECT</a></li>
+                <li data-tooltip="Посмотреть видео"><a href="pages/videos.html">VIDEO</a></li> 
             </ul>
             <div class="mobile-footer">
                 <div class="social-links">
@@ -132,6 +133,56 @@
                     <button class="close-btn" onclick="toggleProfile()">
                         <i class="fas fa-times"></i>
                     </button>
+                </div>
+            </div>
+        </section>
+        <section class="stories-section">
+            <div class="stories-content">
+                <h2 class="stories-title">Истории</h2>
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <div class="story-image">
+                            <video 
+                                src="video/2025-02-14 10.59.54.mp4" 
+                                playsinline
+                                preload="metadata"
+                                poster="video/2025-02-14 10.59.54.mp4#t=0.1">
+                            </video>
+                            <div class="story-overlay"></div>
+                        </div>
+                        <div class="story-author">
+                            <span>Skyway</span>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-image">
+                            <video 
+                                src="video/ios_instructions.mp4" 
+                                playsinline
+                                preload="metadata"
+                                poster="video/ios_instructions.mp4#t=0.1">
+                            </video>
+                            <div class="story-overlay"></div>
+                        </div>
+                        <div class="story-author">
+                            <span>PROSTOBAS</span>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-image">
+                            <video 
+                                src="video/2025-02-14 10.59.54.mp4" 
+                                playsinline
+                                preload="metadata"
+                                poster="video/2025-02-14 10.59.54.mp4#t=0.1">
+                            </video>
+                            <div class="story-overlay"></div>
+                        </div>
+                        <div class="story-author">
+                            <span>Skyway</span>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -581,6 +632,78 @@
             </div>
         </div>
 
+        <section class="video-section">
+            <div class="video-content">
+                <h2 class="video-title">Видео обзоры</h2>
+                <p class="video-subtitle">Полезные видео о нашем сервисе и его возможностях</p>
+                
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <video 
+                                src="video/2025-02-14 10.59.54.mp4" 
+                                controls
+                                playsinline
+                                preload="metadata"
+                                poster="video/2025-02-14 10.59.54.mp4#t=0.1"
+                                onclick="event.stopPropagation()">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3>Skyway поздравляет с 14 февраля</h3>
+                            <p>С праздником! Пусть в вашей жизни будет много радости и счастья! </p>
+                            <div class="video-meta">
+                                <span><i class="far fa-clock"></i> 0:18</span>
+                                <span><i class="far fa-eye"></i> 1.2K просмотров</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <video 
+                                src="video/ios_instructions.mp4" 
+                                controls
+                                playsinline
+                                preload="metadata"
+                                poster="video/ios_instructions.mp4#t=0.1"
+                                onclick="event.stopPropagation()">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3>Как офрмить подписку на iOS</h3>
+                            <p>Пошаговое руководство по установке и настройке сервиса на iOS устройствах.</p>
+                            <div class="video-meta">
+                                <span><i class="far fa-clock"></i> 0:55</span>
+                                <span><i class="far fa-eye"></i> 2.5K просмотров</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <video 
+                                src="video/about_site.mp4" 
+                                controls
+                                playsinline
+                                preload="metadata"
+                                poster="video/about_site.mp4#t=0.1"
+                                onclick="event.stopPropagation()">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3>Наш сайт и все о нем</h3>
+                            <p>Полезные советы и информация о нашем сайте.</p>
+                            <div class="video-meta">
+                                <span><i class="far fa-clock"></i> 0:31</span>
+                                <span><i class="far fa-eye"></i> 3.3к просмотров</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="stats-section">
             <div class="stats-content">
                 <h2 class="stats-title">Skyway - надежный и быстрый сетевой сервис, которому доверяют сотни пользователей для безопасного и стабильного подключения.</h2>
@@ -829,6 +952,31 @@
                         <i class="fas fa-times"></i>
                         Закрыть
                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для историй -->
+    <div class="story-modal">
+        <div class="story-modal-content">
+            <div class="story-modal-header">
+                <div class="story-modal-author">
+                    <img src="Image/logo/logo.jpg" alt="Author">
+                    <span>PROSTOBAS</span>
+                    <span class="story-time">2 часа назад</span>
+                </div>
+                <button class="story-close">&times;</button>
+            </div>
+            <div class="story-modal-video">
+                <video 
+                    src="" 
+                    playsinline
+                    preload="metadata"
+                    controlsList="nodownload">
+                </video>
+                <div class="story-progress-bar">
+                    <div class="progress"></div>
                 </div>
             </div>
         </div>
