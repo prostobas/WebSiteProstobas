@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видео обзоры - Skyway</title>
+    <link rel="stylesheet" href="../styles/videos.css">
+    <link rel="stylesheet" href="../components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo">PROSTOBAS</h1>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-menu">
+            <div class="menu-header">
+                <div class="menu-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <ul>
+                <li data-tooltip="Вернуться на главную"><a href="../index.html">HOME</a></li>
+                <li data-tooltip="Узнать больше обо мне"><a href="../index.html#about">ABOUT US</a></li>
+                <li data-tooltip="Связаться со мной"><a href="../index.html#contacts">CONTACTS</a></li>
+                <li data-tooltip="Читать мой блог"><a href="../blog/blog.html">BLOG</a></li>
+                <li data-tooltip="Посмотреть проекты"><a href="../projects/projects.html">PROJECT</a></li>
+                <li data-tooltip="Посмотреть видео"><a href="videos.html">VIDEO</a></li> 
+            </ul>
+            <div class="mobile-footer">
+                <div class="social-links">
+
+                    <a href="#" class="social-btn vk">
+                        <i class="fab fa-vk"></i>
+                        <span>VK</span>
+                    </a>
+                    <a href="#" class="social-btn telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="#" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="video-section">
+            <div class="video-content">
+                <h2 class="video-title">Видео обзоры</h2>
+                <p class="video-subtitle">Полезные видео о нашем сервисе и его возможностях</p>
+                
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <video 
+                                src="../video/2025-02-14 10.59.54.mp4" 
+                                controls
+                                playsinline
+                                preload="metadata"
+                                poster="../video/2025-02-14 10.59.54.mp4#t=0.1"
+                                onclick="event.stopPropagation()">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3>Skyway поздравляет с 14 февраля</h3>
+                            <p>С праздником! Пусть в вашей жизни будет много радости и счастья! </p>
+                            <div class="video-meta">
+                                <span><i class="far fa-clock"></i> 0:18</span>
+                                <span><i class="far fa-eye"></i> 1.2K просмотров</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <video 
+                                src="../video/ios_instructions.mp4" 
+                                controls
+                                playsinline
+                                preload="metadata"
+                                poster="../video/ios_instructions.mp4#t=0.1"
+                                onclick="event.stopPropagation()">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3>Как офрмить подписку на iOS</h3>
+                            <p>Пошаговое руководство по установке и настройке сервиса на iOS устройствах.</p>
+                            <div class="video-meta">
+                                <span><i class="far fa-clock"></i> 0:55</span>
+                                <span><i class="far fa-eye"></i> 2.5K просмотров</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <video 
+                                src="../video/about_site.mp4" 
+                                controls
+                                playsinline
+                                preload="metadata"
+                                poster="../video/about_site.mp4#t=0.1"
+                                onclick="event.stopPropagation()">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3>Наш сайт и все о нем</h3>
+                            <p>Полезные советы и информация о нашем сайте.</p>
+                            <div class="video-meta">
+                                <span><i class="far fa-clock"></i> 0:31</span>
+                                <span><i class="far fa-eye"></i> 3.3к просмотров</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-bottom">
+                <p>&copy; 2024 PROSTOBAS. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html> 
