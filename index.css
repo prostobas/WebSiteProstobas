@@ -170,7 +170,7 @@ main {
     height: auto;
     margin: 0;
     padding: 5px 0;
-    margin-top: 100px; 
+    margin-top: 100px;
 }
 
 /* Обновляем стили для карточек */
@@ -263,7 +263,7 @@ main {
     transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
-    background: linear-gradient(45deg, 
+    background: linear-gradient(45deg,
         rgba(148, 0, 211, 0.8),  /* Фиолетовый - ярче */
         rgba(255, 69, 0, 0.8),   /* Красно-оранжевый - ярче */
         rgba(65, 105, 225, 0.8),  /* Синий - ярче */
@@ -942,7 +942,7 @@ main {
 }
 
 /* Стили для всех заголовков */
-h2, 
+h2,
 .card-text h2,
 .section h2,
 .footer-section h2 {
@@ -1076,7 +1076,7 @@ h3,
 }
 
 .scroll-arrow.hidden {
-    opacity: 0;     
+    opacity: 0;
 }
 
 .scroll-arrow.visible {
@@ -1092,7 +1092,7 @@ html, body {
 }
 
 /* Убираем конфликтующие стили */
-h2, 
+h2,
 .card-text h2,
 .section h2{
     background: none;
@@ -1523,10 +1523,10 @@ h2,
     left: 0;
     width: 100%;
     height: 40%;
-    background: linear-gradient(45deg, 
-        rgba(65, 105, 225, 0.1), 
-        rgba(50, 205, 50, 0.1), 
-        rgba(255, 20, 147, 0.1), 
+    background: linear-gradient(45deg,
+        rgba(65, 105, 225, 0.1),
+        rgba(50, 205, 50, 0.1),
+        rgba(255, 20, 147, 0.1),
         rgba(255, 140, 0, 0.1)
     );
     filter: blur(10px);
@@ -2119,7 +2119,7 @@ h2,
     .testimonials-grid::-webkit-scrollbar {
         display: none;
     }
-    
+
     .testimonials-grid {
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -2448,10 +2448,10 @@ html {
     left: 0;
     width: 100%;
     height: 40%;
-    background: linear-gradient(45deg, 
-        rgba(65, 105, 225, 0.1), 
-        rgba(50, 205, 50, 0.1), 
-        rgba(255, 20, 147, 0.1), 
+    background: linear-gradient(45deg,
+        rgba(65, 105, 225, 0.1),
+        rgba(50, 205, 50, 0.1),
+        rgba(255, 20, 147, 0.1),
         rgba(255, 140, 0, 0.1)
     );
     z-index: 0;
@@ -2623,7 +2623,7 @@ html {
     .partners-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .partners-title {
         font-size: 1.8rem;
     }
@@ -2791,7 +2791,7 @@ html {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(180deg, 
+    background: linear-gradient(180deg,
         rgb(34, 92, 253) 0%,
         rgb(166, 120, 252) 100%
     );
@@ -3133,7 +3133,7 @@ html {
 }
 
 /* Общие стили для текстовых блоков */
-.profile-description, 
+.profile-description,
 .profile-bio,
 .profile-detail-item {
     max-width: 100%;
@@ -3174,7 +3174,7 @@ html {
         width: 95%;
         padding: 10px;
     }
-    
+
     .profile-stats {
         flex-wrap: wrap;
         justify-content: center;
@@ -3216,7 +3216,7 @@ html {
     }
 
     /* Убираем лишние отступы */
-    .profile-description, 
+    .profile-description,
     .profile-bio,
     .profile-detail-item {
         padding: 0px;
@@ -3416,7 +3416,7 @@ html {
     .video-grid::-webkit-scrollbar {
         display: none;
     }
-    
+
     .video-grid {
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -3764,4 +3764,673 @@ html {
     .story-modal-video {
         height: 100%;
     }
+}
+/*******************************************/
+
+/* Стили для галереи путешествий без рамок */
+.travel-gallery {
+    background: #000000;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.gallery-title {
+    color: #FFFFFF;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.gallery-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #4169E1, #32CD32);
+    border-radius: 2px;
+}
+
+.gallery-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 30px auto 0;
+    line-height: 1.6;
+}
+
+/* Masonry grid стиль */
+.masonry-grid {
+    columns: 4;
+    column-gap: 20px;
+    padding: 0 10px;
+}
+
+.gallery-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #121212;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 20px 40px rgba(65, 105, 225, 0.15),
+        0 0 0 1px rgba(65, 105, 225, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Разные размеры фотографий */
+.gallery-item {
+    height: 300px;
+}
+
+.gallery-item.tall {
+    height: 450px;
+}
+
+.gallery-item.wide {
+    height: 250px;
+}
+
+.gallery-item.extra-wide {
+    height: 350px;
+}
+
+/* Оверлей с информацией */
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.5) 40%,
+        rgba(0, 0, 0, 0.2) 70%,
+        transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 25px;
+}
+
+.gallery-item:hover .photo-overlay {
+    opacity: 1;
+}
+
+.photo-info {
+    transform: translateY(20px);
+    transition: transform 0.3s ease 0.1s;
+    width: 100%;
+}
+
+.gallery-item:hover .photo-info {
+    transform: translateY(0);
+}
+
+.photo-info h3 {
+    color: #FFFFFF;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.photo-info p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.photo-date {
+    color: #4169E1;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.photo-date::before {
+    content: '📅';
+    font-size: 0.9rem;
+}
+
+/* Подвал галереи */
+.gallery-footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.photo-count {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.photo-count i {
+    color: #4169E1;
+    font-size: 1.2rem;
+}
+
+/* Адаптивность masonry grid */
+@media screen and (max-width: 1200px) {
+    .masonry-grid {
+        columns: 3;
+    }
+
+    .gallery-item {
+        height: 280px;
+    }
+
+    .gallery-item.tall {
+        height: 400px;
+    }
+
+    .gallery-item.wide {
+        height: 220px;
+    }
+
+    .gallery-item.extra-wide {
+        height: 320px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .masonry-grid {
+        columns: 2;
+    }
+
+    .gallery-title {
+        font-size: 2.8rem;
+    }
+
+    .gallery-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .masonry-grid {
+        columns: 1;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .gallery-item {
+        height: 350px;
+    }
+
+    .gallery-item.tall {
+        height: 450px;
+    }
+
+    .gallery-item.wide {
+        height: 300px;
+    }
+
+    .gallery-item.extra-wide {
+        height: 400px;
+    }
+
+    .gallery-title {
+        font-size: 2.3rem;
+    }
+
+    .photo-info h3 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    .travel-gallery {
+        padding: 60px 0;
+    }
+
+    .gallery-header {
+        margin-bottom: 40px;
+    }
+
+    .gallery-title {
+        font-size: 2rem;
+    }
+
+    .gallery-subtitle {
+        font-size: 1rem;
+    }
+
+    .masonry-grid {
+        padding: 0;
+    }
+
+    .gallery-item {
+        margin-bottom: 15px;
+        border-radius: 8px;
+    }
+
+    .photo-overlay {
+        padding: 20px;
+        opacity: 0.9; /* Всегда показываем на мобильных */
+    }
+
+    .photo-info {
+        transform: translateY(0);
+    }
+}
+
+/* Модальное окно для просмотра фотографий */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.gallery-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    display: block;
+    margin: 0 auto;
+}
+
+.modal-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 30px 25px 25px;
+    color: #FFFFFF;
+}
+
+.modal-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.modal-info p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.modal-date {
+    color: #4169E1;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+/* Кнопки навигации в модальном окне */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-nav:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.modal-prev {
+    left: 20px;
+}
+
+.modal-next {
+    right: 20px;
+}
+/* Стили для группировки по городам */
+.city-section {
+    margin-bottom: 80px;
+    padding: 40px 20px;
+    background: rgba(18, 18, 18, 0.3);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.city-header {
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.city-title {
+    color: #FFFFFF;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.city-title i {
+    color: #4169E1;
+    font-size: 2.2rem;
+}
+
+.city-description {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-top: 10px;
+}
+
+/* Цвета иконок для разных городов */
+.city-section:nth-child(1) .city-title i { color: #FF8C00; } /* Москва - оранжевый */
+.city-section:nth-child(2) .city-title i { color: #4169E1; } /* Самара - синий */
+.city-section:nth-child(3) .city-title i { color: #32CD32; } /* Саратов - зеленый */
+.city-section:nth-child(4) .city-title i { color: #FF1493; } /* Иваново - розовый */
+.city-section:nth-child(5) .city-title i { color: #9370DB; } /* Адлер - фиолетовый */
+.city-section:nth-child(6) .city-title i { color: #00CED1; } /* Сочи - бирюзовый */
+
+/* Градиенты для разных городов */
+.city-section:nth-child(1)::before {
+    background: linear-gradient(90deg, #FF8C00, #FFD700);
+}
+.city-section:nth-child(2)::before {
+    background: linear-gradient(90deg, #4169E1, #1E90FF);
+}
+.city-section:nth-child(3)::before {
+    background: linear-gradient(90deg, #32CD32, #00FF7F);
+}
+.city-section:nth-child(4)::before {
+    background: linear-gradient(90deg, #FF1493, #FF69B4);
+}
+.city-section:nth-child(5)::before {
+    background: linear-gradient(90deg, #9370DB, #8A2BE2);
+}
+.city-section:nth-child(6)::before {
+    background: linear-gradient(90deg, #00CED1, #20B2AA);
+}
+
+/* Адаптивность для группировки */
+@media screen and (max-width: 768px) {
+    .city-section {
+        margin-bottom: 60px;
+        padding: 30px 15px;
+    }
+
+    .city-title {
+        font-size: 2rem;
+    }
+
+    .city-description {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .city-section {
+        margin-bottom: 50px;
+        padding: 25px 12px;
+    }
+
+    .city-title {
+        font-size: 1.7rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .city-description {
+        font-size: 1rem;
+    }
+}
+
+/* Обновляем masonry grid для группировки */
+.masonry-grid {
+    columns: 3;
+    column-gap: 20px;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .masonry-grid {
+        columns: 2;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .masonry-grid {
+        columns: 1;
+    }
+}
+
+/* Обновляем стили для галереи */
+.gallery-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #121212;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Задержки анимации для каждого элемента */
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.gallery-item:nth-child(5) { animation-delay: 0.5s; }
+.gallery-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Размеры фотографий для лучшего отображения */
+.gallery-item {
+    height: 280px;
+}
+
+.gallery-item.tall {
+    height: 420px;
+}
+
+.gallery-item.wide {
+    height: 220px;
+}
+
+.gallery-item.extra-wide {
+    height: 320px;
+    grid-column: span 2;
+}
+
+/* Обновляем оверлей */
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.7) 40%,
+        rgba(0, 0, 0, 0.4) 70%,
+        transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 25px;
+}
+
+.gallery-item:hover .photo-overlay {
+    opacity: 1;
+}
+
+.photo-info {
+    transform: translateY(20px);
+    transition: transform 0.3s ease 0.1s;
+    width: 100%;
+}
+
+.gallery-item:hover .photo-info {
+    transform: translateY(0);
+}
+
+.photo-info h3 {
+    color: #FFFFFF;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.photo-info p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.photo-date {
+    color: #4169E1;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Обновляем подвал галереи */
+.gallery-footer {
+    margin-top: 80px;
+    padding: 40px;
+    background: rgba(18, 18, 18, 0.5);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.photo-count {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.3rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 40px;
+    background: rgba(65, 105, 225, 0.1);
+    border-radius: 25px;
+    border: 1px solid rgba(65, 105, 225, 0.2);
+}
+
+.photo-count i {
+    color: #4169E1;
+    font-size: 1.5rem;
 }

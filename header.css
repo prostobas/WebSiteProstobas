@@ -1,0 +1,840 @@
+/* Стили для travel blog - верхнее меню */
+.logo {
+    color: #FFFFFF;
+    font-size: 2.2rem;
+    margin: 10px 0;
+    position: relative;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #4169E1;
+    font-weight: 800;
+}
+
+/* Обновленные стили для навигации */
+.nav-menu ul {
+    gap: 25px;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.menu-link i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.menu-link span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.menu-link:hover {
+    background: rgba(65, 105, 225, 0.2);
+    color: #4169E1;
+}
+
+/* Статистика в мобильном меню */
+.menu-stats {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+}
+
+.menu-stats .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-stats .stat-number {
+    color: #4169E1;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.menu-stats .stat-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+}
+
+/* Стили для travel blog - секция home */
+/* Стили для минималистичного дизайна home */
+#home {
+    min-height: 100vh;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Фоновая фотография на весь экран */
+.home-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.fullscreen-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: 1;
+}
+
+/* Основной контент по центру */
+.home-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.hero-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.hero-title {
+    color: #FFFFFF;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    color: #4169E1;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-tags {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero-tag:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    border-color: #4169E1;
+}
+
+.hero-tag i {
+    color: #4169E1;
+    font-size: 1.2rem;
+}
+
+/* Кнопка исследовать */
+.explore-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 45px;
+    background: linear-gradient(135deg, #4169E1, #32CD32);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 35px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 10px 30px rgba(65, 105, 225, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.explore-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+}
+
+.explore-btn:hover::before {
+    left: 100%;
+}
+
+.explore-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(65, 105, 225, 0.4);
+}
+
+.explore-btn:active {
+    transform: translateY(-2px);
+}
+
+.explore-btn i {
+    font-size: 1.5rem;
+}
+
+/* Индикатор прокрутки */
+.scroll-down {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    z-index: 10;
+    animation: float 3s infinite ease-in-out;
+}
+
+.scroll-arrow {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(65, 105, 225, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.scroll-arrow::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid rgba(65, 105, 225, 0.4);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.scroll-arrow:hover {
+    background: rgba(65, 105, 225, 0.4);
+    border-color: #4169E1;
+    transform: scale(1.1);
+}
+
+.scroll-arrow:hover i {
+    color: #4169E1;
+    transform: translateY(3px);
+}
+
+.scroll-arrow i {
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    transition: all 0.3s ease;
+    animation: bounce 2s infinite;
+}
+
+/* Текст под индикатором */
+.scroll-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.scroll-text span {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+/* Анимации */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Эффект свечения при наведении */
+.scroll-arrow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(65, 105, 225, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-arrow:hover::after {
+    opacity: 1;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .scroll-down {
+        bottom: 30px;
+    }
+
+    .scroll-arrow {
+        width: 45px;
+        height: 45px;
+    }
+
+    .scroll-arrow i {
+        font-size: 1.2rem;
+    }
+
+    .scroll-text span {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .scroll-down {
+        bottom: 25px;
+        gap: 8px;
+    }
+
+    .scroll-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .scroll-arrow i {
+        font-size: 1.1rem;
+    }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Стили для карточек во всю ширину */
+.fullwidth-cards {
+    background: #000000;
+}
+
+/* Статистика во всю ширину */
+.stats-fullwidth {
+    background: #121212;
+    padding: 80px 20px;
+}
+
+.stats-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.stat-card-full {
+    background: rgba(18, 18, 18, 0.8);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(65, 105, 225, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card-full:hover {
+    transform: translateY(-10px);
+    border-color: #4169E1;
+    box-shadow: 0 20px 40px rgba(65, 105, 225, 0.2);
+}
+
+.stat-card-full::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+        rgba(65, 105, 225, 0.1) 0%,
+        rgba(50, 205, 50, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stat-card-full:hover::before {
+    opacity: 1;
+}
+
+.stat-icon-full {
+    width: 70px;
+    height: 70px;
+    background: rgba(65, 105, 225, 0.2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-icon-full i {
+    font-size: 2.2rem;
+    color: #4169E1;
+}
+
+.stat-content-full {
+    position: relative;
+    z-index: 1;
+}
+
+.stat-number-full {
+    display: block;
+    color: #FFFFFF;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.stat-label-full {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+/* Следующая поездка во всю ширину */
+.next-trip-fullwidth {
+    background: #0A0A0A;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.next-trip-fullwidth::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, transparent 70%);
+    opacity: 0.3;
+}
+
+.trip-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.trip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trip-header h2 {
+    color: #FFFFFF;
+    font-size: 2.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.trip-header h2 i {
+    color: #FF8C00;
+    font-size: 2.5rem;
+}
+
+.trip-date {
+    color: #FF8C00;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    background: rgba(255, 140, 0, 0.2);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.trip-destination {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.destination-info h3 {
+    color: #FFFFFF;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.destination-info p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.3rem;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+.trip-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+    border-color: #FF8C00;
+}
+
+.highlight-item i {
+    color: #FF8C00;
+    font-size: 1.2rem;
+}
+
+/* Недавнее путешествие во всю ширину */
+.recent-trip-fullwidth {
+    background: #121212;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.recent-trip-fullwidth::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+    opacity: 0.3;
+}
+
+.recent-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.recent-header {
+    margin-bottom: 40px;
+}
+
+.recent-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.recent-badge i {
+    font-size: 1.1rem;
+}
+
+.recent-header h2 {
+    color: #FFFFFF;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.recent-date {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+}
+
+.recent-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.recent-description p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.3rem;
+    line-height: 1.7;
+}
+
+.recent-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 25px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+    border-color: #4CAF50;
+}
+
+.feature i {
+    color: #4CAF50;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.feature {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 1024px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trip-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .recent-details {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #home {
+        height: 100vh;
+        min-height: 100vh;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero-tags {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .explore-btn {
+        padding: 18px 35px;
+        font-size: 1.2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .trip-destination {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .trip-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .destination-info h3 {
+        font-size: 2.2rem;
+    }
+
+    .trip-highlights {
+        justify-content: center;
+    }
+
+    .recent-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-tag {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .explore-btn {
+        padding: 16px 30px;
+        font-size: 1.1rem;
+    }
+
+    .stat-number-full {
+        font-size: 2.8rem;
+    }
+
+    .trip-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .destination-info h3 {
+        font-size: 1.8rem;
+    }
+
+    .highlight-item {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .recent-header h2 {
+        font-size: 2.2rem;
+    }
+}

@@ -6,452 +6,880 @@
     <title>PROSTOBAS</title>
     <link rel="stylesheet" href="components.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1 class="logo">PROSTOBAS</h1>
-        <div class="menu-btn">
-            <i class="fas fa-bars"></i>
+<header>
+    <h1 class="logo">TRAVEL<span style="color: #4169E1;">BLOG</span></h1>
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    <nav class="nav-menu">
+        <ul>
+            <li data-tooltip="Главная страница">
+                <a href="#home" class="menu-link">
+                    <i class="fas fa-home"></i>
+                    <span>Главная</span>
+                </a>
+            </li>
+            <li data-tooltip="Мои путешествия">
+                <a href="#travel" class="menu-link">
+                    <i class="fas fa-plane"></i>
+                    <span>Путешествия</span>
+                </a>
+            </li>
+            <li data-tooltip="Фотографии">
+                <a href="#gallery" class="menu-link">
+                    <i class="fas fa-camera"></i>
+                    <span>Галерея</span>
+                </a>
+            </li>
+            <li data-tooltip="Заметки о поездках">
+                <a href="#blog" class="menu-link">
+                    <i class="fas fa-book"></i>
+                    <span>Блог</span>
+                </a>
+            </li>
+            <li data-tooltip="Советы путешественникам">
+                <a href="#tips" class="menu-link">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Советы</span>
+                </a>
+            </li>
+            <li data-tooltip="Контакты для связи">
+                <a href="#contacts" class="menu-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Контакты</span>
+                </a>
+            </li>
+        </ul>
+        <div class="mobile-footer">
+            <div class="social-links">
+                <a href="#" class="social-btn instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="social-btn telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="#" class="social-btn youtube">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+            </div>
+            <div class="menu-stats">
+                <div class="stat-item">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Страна</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Городов</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2.5к</span>
+                    <span class="stat-label">Фото</span>
+                </div>
+            </div>
         </div>
-        <nav class="nav-menu">
-            <div class="menu-header">
-                <div class="menu-close">
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
-            <ul>
-                <li data-tooltip="Вернуться на главную"><a href="#home">HOME</a></li>
-                <li data-tooltip="Узнать больше обо мне"><a href="#about">ABOUT US</a></li>
-                <li data-tooltip="Связаться со мной"><a href="#contacts">CONTACTS</a></li>
-                <li data-tooltip="Читать мой блог"><a href="blog/blog.html">BLOG</a></li>
-                <li data-tooltip="Посмотреть проекты"><a href="projects/projects.html">PROJECT</a></li>
-                <li data-tooltip="Посмотреть видео"><a href="pages/videos.html">VIDEO</a></li> 
-            </ul>
-            <div class="mobile-footer">
-                <div class="social-links">
-
-                    <a href="#" class="social-btn vk">
-                        <i class="fab fa-vk"></i>
-                        <span>VK</span>
-                    </a>
-                    <a href="#" class="social-btn telegram">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>Telegram</span>
-                    </a>
-                    <a href="#" class="social-btn instagram">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    </nav>
+</header>
     <main>
-        <section id="home">
-            <div class="home-content">
-                <div class="card-image">
-                    <img src="Image/logo/logo.jpg" alt="Avatar">
-                </div>
-                <h1>Добро пожаловать!</h1>
-                <p>Здесь вы можете найти много интересной информации. Посмотреть мои проекты и прочитать статьи в разделе блог на разные темы, а также оформить подписку на сетевой сервис Skyway.</p>
-                
-                <!-- Добавляем кнопку -->
-                <button class="profile-btn" onclick="toggleProfile()">
-                    <i class="fas fa-user"></i> Профиль
-                </button>
+     <section id="home">
+    <!-- Фоновая фотография на весь экран -->
+    <div class="home-background">
+        <img src="Image/travel/photo_2025-08-12_08-33-01.jpg" alt="Путешествия фон" class="fullscreen-bg">
+        <div class="bg-overlay"></div>
+    </div>
+
+    <!-- Основной контент по центру -->
+    <div class="home-content">
+        <div class="hero-center">
+            <h1 class="hero-title">PROSTOBAS</h1>
+            <p class="hero-subtitle">Путешественник & Инженер программист & Фотограф</p>
+
+            <div class="hero-tags">
+                <span class="hero-tag">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Пенза, Россия
+                </span>
+                <span class="hero-tag">
+                    <i class="fas fa-plane"></i>
+                    8 городов
+                </span>
             </div>
-            <div class="gradient-background"></div>
 
-            <!-- Добавляем всплывающий профиль -->
-            <div class="profile-overlay" id="profileOverlay">
-                <div class="profile-card">
-                    <div class="profile-top">
-                        <div class="profile-avatar">
-                            <img src="Image/logo/logo.jpg" alt="Profile">
-                        </div>
-                        <div class="profile-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">10.2к</span>
-                                <span class="stat-label">Подписчиков</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">250</span>
-                                <span class="stat-label">Подписок</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">10.2к</span>
-                                <span class="stat-label">Лайков</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="profile-info">
-                        <div class="profile-name-section">
-                            <h2>PROSTOBAS</h2>
-                            <svg class="verified-badge" viewBox="0 0 24 24" fill="none">
-                                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <p class="profile-bio">Разработчик • Технический директор • Основатель Skyway 🚀</p>
-                        <p class="profile-description">  
-                            Создаю инновационные решения в сфере IT, совмещая современные технологии с практическим подходом.  
-                            Специализируюсь на разработке веб-приложений, сетевых сервисов и облачных решений, обеспечивая высокую производительность и безопасность.  
-                            Основатель проекта Skyway VPN 🚀 – сервиса, предоставляющего быстрый и надежный доступ к интернету без ограничений.  
-                            Имею обширный опыт в разработке программного обеспечения, архитектуре серверных решений и оптимизации производительности.  
-                            Постоянно исследую новые технологии и внедряю передовые подходы для создания удобных, масштабируемых и защищенных продуктов.  
-                            Ориентирован на высокое качество, удобство пользователей и инновации в мире IT.  
-                        </p>
-                        
-                        
-                        <!-- Добавляем дополнительную информацию -->
-                        <div class="profile-details">
-                            <div class="profile-detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Пенза, Россия</span>
-                            </div>
-                            <div class="profile-detail-item">
-                                <i class="fas fa-briefcase"></i>
-                                <span>Skyway VPN</span>
-                            </div>
-                            <div class="profile-detail-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>prostobas@icloud.com</span>
-                            </div>
-                        </div>
+            <!-- Кнопка по центру -->
+            <button class="explore-btn" onclick="scrollToTravel()">
+                <i class="fas fa-compass"></i>
+                Исследовать путешествия
+            </button>
+        </div>
 
-                        <div class="profile-actions">
-                            <a href="https://t.me/prost0bas" class="follow-btn">
-                                <i class="fas fa-user-plus"></i>
-                                Подписаться
-                            </a>
-                            <button class="cancel-btn" onclick="toggleProfile()">
-                                <i class="fas fa-times"></i>
-                                Закрыть
-                            </button>
-                        </div>
-                    </div>
-                    <button class="close-btn" onclick="toggleProfile()">
-                        <i class="fas fa-times"></i>
-                    </button>
+        <!-- Индикатор прокрутки -->
+       <div class="scroll-down">
+    <div class="scroll-arrow" onclick="scrollToTravel()">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="scroll-text">
+        <span>Прокрутите вниз</span>
+        <span>Узнайте больше</span>
+    </div>
+</div>
+    </div>
+</section>
+
+<!-- Карточки во всю ширину -->
+<section class="fullwidth-cards">
+    <!-- Статистика -->
+    <div class="stats-fullwidth">
+        <div class="stats-grid">
+            <div class="stat-card-full">
+                <div class="stat-icon-full">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="stat-content-full">
+                    <span class="stat-number-full">1</span>
+                    <span class="stat-label-full">Посещенная страна</span>
                 </div>
             </div>
-        </section>
-        <section class="stories-section">
-            <div class="stories-content">
-                <h2 class="stories-title">Истории</h2>
-                <div class="stories-grid">
-                    <div class="story-card">
-                        <div class="story-image">
-                            <video 
-                                src="video/2025-02-14 10.59.54.mp4" 
-                                playsinline
-                                preload="metadata"
-                                poster="video/2025-02-14 10.59.54.mp4#t=0.1">
-                            </video>
-                            <div class="story-overlay"></div>
-                        </div>
-                        <div class="story-author">
-                            <span>Skyway</span>
-                        </div>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-image">
-                            <video 
-                                src="video/ios_instructions.mp4" 
-                                playsinline
-                                preload="metadata"
-                                poster="video/ios_instructions.mp4#t=0.1">
-                            </video>
-                            <div class="story-overlay"></div>
-                        </div>
-                        <div class="story-author">
-                            <span>PROSTOBAS</span>
-                        </div>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-image">
-                            <video 
-                                src="video/2025-02-14 10.59.54.mp4" 
-                                playsinline
-                                preload="metadata"
-                                poster="video/2025-02-14 10.59.54.mp4#t=0.1">
-                            </video>
-                            <div class="story-overlay"></div>
-                        </div>
-                        <div class="story-author">
-                            <span>Skyway</span>
-                        </div>
-                    </div>
-                    
+
+            <div class="stat-card-full">
+                <div class="stat-icon-full">
+                    <i class="fas fa-city"></i>
+                </div>
+                <div class="stat-content-full">
+                    <span class="stat-number-full">8</span>
+                    <span class="stat-label-full">Исследованных городов</span>
                 </div>
             </div>
-        </section>
-        <section class="pricing-section">
-            <div class="pricing-content">
-                <h2>Skyway - сетевой сервис</h2>
-                <p class="subtitle">Самый лучший и быстрый сервис для безопасного подключения к сервисам.</p>
-                
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <h3>Тариф Пробный</h3>
-                        <div class="price">Бесплатно</div>
-                        <div class="plan-subtitle">Рекомендуемый период для проверки сервиса.</div>
-                        <ul class="features-list">
-                            <li>
-                                <i class="fas fa-check"></i>
-                                5 дней пробный период
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                небольшой функционал
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                без ограничений по скорости
-                            </li>
-                        </ul>
-                        <a href="https://t.me/SkywayVPN_bot?start=free_trial" class="get-started-btn">
-                            ПОПРОБОВАТЬ
-                        </a>
-                    </div>
 
-                    <div class="pricing-card">
-                        <h3>Тариф 1 месяц</h3>
-                        <div class="price">169руб<span>/месяц</span></div>
-                        <div class="plan-subtitle">Чаще всего используемый период.</div>
-                        <ul class="features-list">
-                            <li>
-                                <i class="fas fa-check"></i>
-                                30 дней пользования
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                без ограничений по скорости
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                полный функционал
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                1 ключ на 4 устройства
-                            </li>
-                        </ul>
-                        <a href="https://t.me/SkywayVPN_bot?start=subscribe" class="get-started-btn">
-                            Оформить подписку
-                        </a>
-                    </div>
-
-                    <div class="pricing-card">
-                        <h3>Тариф 3 месяца</h3>
-                        <div class="price">469руб<span>/каждые 3 месяца</span></div>
-                        <div class="plan-subtitle">Подходит для тех, кто хочет использовать сервис долгое время.</div>
-                        <ul class="features-list">
-                            <li>
-                                <i class="fas fa-check"></i>
-                                90 дней пользования
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                без ограничений по скорости
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                полный функционал
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                1 ключ на 4 устройства
-                            </li>
-                        </ul>
-                        <a href="https://t.me/SkywayVPN_bot?start=subscribe" class="get-started-btn">
-                            Оформить подписку
-                        </a>
-                    </div>
-                    <div class="pricing-card">
-                        <h3>Тариф 6 месяцев</h3>
-                        <div class="price">869руб<span>/каждые 6 месяцев</span></div>
-                        <div class="plan-subtitle">Подходит для малых компаний и организаций.</div>
-                        <ul class="features-list">
-                            <li>
-                                <i class="fas fa-check"></i>
-                                180 дней пользования
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                без ограничений по скорости
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                полный функционал
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                1 ключ на 4 устройства
-                            </li>
-                        </ul>
-                        <a href="https://t.me/SkywayVPN_bot?start=subscribe" class="get-started-btn">
-                            Оформить подписку
-                        </a>
-                    </div>
-                    <div class="pricing-card">
-                        <h3>Тариф 12 месяцев</h3>
-                        <div class="price">1699руб<span>/каждые 12 месяцев</span></div>
-                        <div class="plan-subtitle">Подходит для больших компаний и организаций.</div>
-                        <ul class="features-list">
-                            <li>
-                                <i class="fas fa-check"></i>
-                                365 дней пользования
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                без ограничений по скорости
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                полный функционал
-                            </li>
-                            <li>
-                                <i class="fas fa-check"></i>
-                                1 ключ на 4 устройства
-                            </li>
-                        </ul>
-                        <a href="https://t.me/SkywayVPN_bot?start=subscribe" class="get-started-btn">
-                            Оформить подписку
-                        </a>
-                    </div>
+            <div class="stat-card-full">
+                <div class="stat-icon-full">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="stat-content-full">
+                    <span class="stat-number-full">2.5k</span>
+                    <span class="stat-label-full">Фотографий</span>
                 </div>
             </div>
-        </section>
-        <section class="testimonials-section">
-            <div class="testimonials-content">
-                <h2 class="testimonials-title">Что говорят пользователи о нашем сервисе</h2>
-                
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote">"</div>
-                            <p>Отличный сервис! Использую с начало его появления, скорость всегда стабильная, никаких обрывов соединения. Техподдержка отвечает моментально. Очень доволен, рекомендую всем!</p>
-                            <div class="testimonial-author">
-                                <span class="author-name">АЛЕКСАНДР К.</span>
-                                <span class="author-role">Активный пользователь</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote">"</div>
-                            <p>Пробовал много разных сервисов, но остановился на Skyway. Здесь лучшее соотношение цены и качества. Особенно радует возможность использовать один ключ на нескольких устройствах. Работает стабильно, без нареканий.</p>
-                            <div class="testimonial-author">
-                                <span class="author-name">МИХАИЛ В.</span>
-                                <span class="author-role">Постоянный клиент</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote">"</div>
-                            <p>Начал с пробного периода, а теперь являюсь постоянным клиентом. Сервис работает отлично, скорость всегда высокая. Очень удобно, что есть разные тарифы - можно выбрать именно то, что нужно. Спасибо команде Skyway!</p>
-                            <div class="testimonial-author">
-                                <span class="author-name">ДМИТРИЙ С.</span>
-                                <span class="author-role">Довольный пользователь</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote">"</div>
-                            <p>Сервис реально топ! Скорость отличная, поддержка всегда отвечает быстро. Подключился пару месяцев назад и ни разу не пожалел. Рекомендую!</p>
-                            <div class="testimonial-author">
-                                <span class="author-name">Артём М.</span>
-                                <span class="author-role">Довольный клиент</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote">"</div>
-                            <p>Брал на тест, в итоге остался. Удобные тарифы, всё прозрачно, без подводных камней. Работает без перебоев, что очень важно для меня. Спасибо команде Skyway!</p>
-                            <div class="testimonial-author">
-                                <span class="author-name">Мария К.</span>
-                                <span class="author-role">Новый пользователь</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote">"</div>
-                            <p>Долгое время искал нормальный интернет, и наконец нашёл! Скорость стабильная, стримы идут без лагов. Теперь даже не думаю о смене провайдера.</p>
-                            <div class="testimonial-author">
-                                <span class="author-name">Никита С.</span>
-                                <span class="author-role">Постоянный клиент</span>
-                            </div>
-                        </div>
-                    </div>
-                    
+            <div class="stat-card-full">
+                <div class="stat-icon-full">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <div class="stat-content-full">
+                    <span class="stat-number-full">35</span>
+                    <span class="stat-label-full">Поездок</span>
                 </div>
             </div>
-        </section>
-        <section class="partners-section">
-            <div class="partners-content">
-                <h2 class="partners-title">ПАРТНЕРЫ</h2>
-                <div class="partners-grid">
-                    <div class="partner-card">
-                        <div class="partner-avatar">
-                            <img src="Image/logo/arina.jpg" alt="Partner 1">
-                        </div>
-                        <h3>Матченя Арина</h3>
-                        <p class="partner-role">Фотограф</p>
-                        <p class="partner-location">
-                            <i class="fas fa-map-marker-alt"></i> Пенза
-                        </p>
-                        <p class="partner-description">Профессиональный фотограф. Создает красивые и качественные фотографии. Большой опыт работы. Много довольных клиентов.</p>
-                        <div class="partner-actions">
-                            <a href="#" class="partner-link">
-                                <i class="fas fa-external-link-alt"></i>Профиль
-                            </a>
-                        </div>
-                    </div>
+        </div>
+    </div>
 
-                    <div class="partner-card">
-                        <div class="partner-avatar">
-                            <img src="Image/logo/logo.jpg" alt="Partner 2">
-                        </div>
-                        <h3>Панкрашкин Михаил</h3>
-                        <p class="partner-role">Основатель сервиса Skyway</p>
-                        <p class="partner-location">
-                            <i class="fas fa-map-marker-alt"></i> Пенза
-                        </p>
-                        <p class="partner-description">Специалист по серверной части. Поддерживает работу сервиса. Бизнес-аналитик и администратор сервиса Skyway.</p>
-                        <div class="partner-actions">
-                            <a href="#" class="partner-link">
-                                <i class="fas fa-external-link-alt"></i> Профиль
-                            </a>
+    <!-- Следующая поездка -->
+    <div class="next-trip-fullwidth">
+        <div class="trip-content">
+            <div class="trip-header">
+                <h2><i class="fas fa-calendar-alt"></i> Следующая поездка</h2>
+                <span class="trip-date">Апрель 2026</span>
+            </div>
+            <div class="trip-destination">
+                <div class="destination-info">
+                     <h3>Карелия, Россия</h3>
+                    <p>Земля тысячи озёр, хвойных лесов и северной природы</p>
+                </div>
+            </div>
+            <div class="trip-highlights">
+                <span class="highlight-item">
+                    <i class="fas fa-water"></i>
+                    Ладожское озеро
+                </span>
+                <span class="highlight-item">
+                    <i class="fas fa-tree"></i>
+                    Хвойные леса
+                </span>
+                <span class="highlight-item">
+                    <i class="fas fa-mountain"></i>
+                    Водопад Кивач
+                </span>
+                <span class="highlight-item">
+                    <i class="fas fa-church"></i>
+                    Кижи
+                </span>
+                <span class="highlight-item">
+                    <i class="fas fa-campground"></i>
+                    Походы
+                </span>
+                <span class="highlight-item">
+                    <i class="fas fa-fish"></i>
+                    Рыбалка
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Недавнее путешествие -->
+    <div class="recent-trip-fullwidth">
+        <div class="recent-content">
+            <div class="recent-header">
+                <div class="recent-badge">
+                    <i class="fas fa-clock"></i>
+                    Недавнее путешествие
+                </div>
+                <h2>Адлер, Россия</h2>
+                <p class="recent-date">Август 2025</p>
+            </div>
+
+            <div class="recent-details">
+                <div class="recent-description">
+                    <p>Черноморское побережье с субтропическим климатом. Сочетание морского отдыха, горных пейзажей Красной Поляны и уникальной природы Сочинского дендрария.</p>
+                </div>
+            </div>
+             <div class="trip-highlights" style="margin-top:15px;">
+                <span class="highlight-item">
+                     <i class="fas fa-umbrella-beach"></i>
+                    Черное море
+                </span>
+                <span class="highlight-item">
+                   <i class="fas fa-mountain"></i>
+                        Красная Поляна
+                </span>
+                <span class="highlight-item">
+                      <i class="fas fa-tree"></i>
+                        Дендрарий
+                </span>
+                <span class="highlight-item">
+                    <i class="fas fa-medal"></i>
+                        Олимпийские объекты
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+<!--         <section class="stories-section">-->
+<!--            <div class="stories-content">-->
+<!--                <h2 class="stories-title">Истории</h2>-->
+<!--                <div class="stories-grid">-->
+<!--                    <div class="story-card">-->
+<!--                        <div class="story-image">-->
+<!--                            <video-->
+<!--                                src="video/2025-02-14 10.59.54.mp4"-->
+<!--                                playsinline-->
+<!--                                preload="metadata"-->
+<!--                                poster="video/2025-02-14 10.59.54.mp4#t=0.1">-->
+<!--                            </video>-->
+<!--                            <div class="story-overlay"></div>-->
+<!--                        </div>-->
+<!--                        <div class="story-author">-->
+<!--                            <span>Skyway</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="story-card">-->
+<!--                        <div class="story-image">-->
+<!--                            <video-->
+<!--                                src="video/ios_instructions.mp4"-->
+<!--                                playsinline-->
+<!--                                preload="metadata"-->
+<!--                                poster="video/ios_instructions.mp4#t=0.1">-->
+<!--                            </video>-->
+<!--                            <div class="story-overlay"></div>-->
+<!--                        </div>-->
+<!--                        <div class="story-author">-->
+<!--                            <span>PROSTOBAS</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="story-card">-->
+<!--                        <div class="story-image">-->
+<!--                            <video-->
+<!--                                src="video/2025-02-14 10.59.54.mp4"-->
+<!--                                playsinline-->
+<!--                                preload="metadata"-->
+<!--                                poster="video/2025-02-14 10.59.54.mp4#t=0.1">-->
+<!--                            </video>-->
+<!--                            <div class="story-overlay"></div>-->
+<!--                        </div>-->
+<!--                        <div class="story-author">-->
+<!--                            <span>Skyway</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+      <section class="travel-gallery" id="travel">
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h2 class="gallery-title">Мои Путешествия</h2>
+            <p class="gallery-subtitle">Фотографии из разных городов России, запечатлевшие самые яркие моменты моих поездок</p>
+        </div>
+
+        <!-- Москва -->
+        <div class="city-section">
+            <div class="city-header">
+                <h3 class="city-title">
+                    <i class="fas fa-landmark"></i>
+                    Москва
+                </h3>
+                <p class="city-description">Столица России, город с богатой историей, современной архитектурой и культурными сокровищами.</p>
+
+            </div>
+
+            <div class="masonry-grid">
+                <!-- Фото 1 Москва -->
+                <div class="gallery-item wide">
+                    <img src="Image/travel/photo_2026-01-10_17-52-15.jpg" alt="Красная площадь ночью" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Красная площадь</h3>
+                            <p>Исторический центр Москвы, место проведения парадов и праздников</p>
+                            <span class="photo-date">Сентябрь 2023</span>
                         </div>
                     </div>
-                    <div class="partner-card">
-                        <div class="partner-avatar">
-                            <img src="Image/logo/logo.jpg" alt="Partner 3">
+                </div>
+
+                <!-- Фото 2 Москва -->
+                <div class="gallery-item tall">
+                    <img src="Image/travel/photo_2026-01-10_17-50-16.jpg" alt="Московский Кремль" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Московский Кремль</h3>
+                            <p>Древняя крепость, резиденция президента России</p>
+                            <span class="photo-date">Сентябрь 2023</span>
                         </div>
-                        <h3>Цветков Даниил</h3>
-                        <p class="partner-role">Основатель сервиса Skyway</p>
-                        <p class="partner-location">
-                            <i class="fas fa-map-marker-alt"></i> Пенза
-                        </p>
-                        <p class="partner-description">Маркетолог и администратор сервиса Skyway. Продвигает сервис в социальных сетях.</p>
-                        <div class="partner-actions">
-                            <a href="#" class="partner-link">
-                                <i class="fas fa-external-link-alt"></i> Профиль
-                            </a>
+                    </div>
+                </div>
+
+                <!-- Фото 3 Москва -->
+                <div class="gallery-item">
+                    <img src="Image/travel/photo_2026-01-10_17-51-29.jpg" alt="Москва-Сити" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Москва-Сити</h3>
+                            <p>Современный деловой центр с небоскрёбами</p>
+                            <span class="photo-date">Сентябрь 2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item tall">
+                    <img src="Image/travel/photo_2026-01-10_17-50-50.jpg" alt="Москва-Сити" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Москва-Сити</h3>
+                            <p>Современный деловой центр с небоскрёбами</p>
+                            <span class="photo-date">Сентябрь 2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Image/travel/photo_2026-01-10_17-51-26.jpg" alt="Москва-Сити" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Москва-Сити</h3>
+                            <p>Современный деловой центр с небоскрёбами</p>
+                            <span class="photo-date">Сентябрь 2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item tall">
+                    <img src="Image/travel/photo_2026-01-10_17-51-22.jpg" alt="Москва-Сити" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Москва-Сити</h3>
+                            <p>Современный деловой центр с небоскрёбами</p>
+                            <span class="photo-date">Сентябрь 2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Image/travel/photo_2026-01-10_17-48-08.jpg" alt="Москва-Сити" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Москва-Сити</h3>
+                            <p>Современный деловой центр с небоскрёбами</p>
+                            <span class="photo-date">Сентябрь 2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Image/travel/photo_2026-01-10_17-51-38.jpg" alt="Москва-Сити" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Москва-Сити</h3>
+                            <p>Современный деловой центр с небоскрёбами</p>
+                            <span class="photo-date">Сентябрь 2023</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+<!-- Адлер -->
+        <div class="city-section">
+            <div class="city-header">
+                <h3 class="city-title">
+                    <i class="fas fa-umbrella-beach"></i>
+                    Адлер
+                </h3>
+                <p class="city-description">Курортный район Сочи, ворота в горы Кавказа и черноморское побережье.</p>
+            </div>
+
+            <div class="masonry-grid">
+                <!-- Фото 1 Адлер -->
+                <div class="gallery-item wide">
+                    <img src="Image/travel/adler1.jpg" alt="Адлерский пляж" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Черноморское побережье</h3>
+                            <p>Галечные пляжи и тёплое море</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 2 Адлер -->
+                <div class="gallery-item tall">
+                    <img src="Image/travel/adler2.jpg" alt="Олимпийский парк" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Олимпийский парк</h3>
+                            <p>Объекты зимней Олимпиады 2014 года</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 3 Адлер -->
+                <div class="gallery-item">
+                    <img src="Image/travel/adler3.jpg" alt="Сочи Парк" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Сочи Парк</h3>
+                            <p>Первый тематический парк в России</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Фото 4 Адлер -->
+                <div class="gallery-item wide">
+                    <img src="Image/travel/adler4.jpg" alt="Адлерский пляж" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Черноморское побережье</h3>
+                            <p>Галечные пляжи и тёплое море</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 5 Адлер -->
+                <div class="gallery-item tall">
+                    <img src="Image/travel/adler5.jpg" alt="Олимпийский парк" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Олимпийский парк</h3>
+                            <p>Объекты зимней Олимпиады 2014 года</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 6 Адлер -->
+                <div class="gallery-item tall">
+                    <img src="Image/travel/adler6.jpg" alt="Сочи Парк" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Сочи Парк</h3>
+                            <p>Первый тематический парк в России</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 7 Адлер -->
+                <div class="gallery-item">
+                    <img src="Image/travel/adler7.jpg" alt="Сочи Парк" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Сочи Парк</h3>
+                            <p>Первый тематический парк в России</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Фото 8 Адлер -->
+                <div class="gallery-item tall">
+                    <img src="Image/travel/adler8.jpg" alt="Олимпийский парк" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Олимпийский парк</h3>
+                            <p>Объекты зимней Олимпиады 2014 года</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 9 Адлер -->
+                <div class="gallery-item">
+                    <img src="Image/travel/adler9.jpg" alt="Сочи Парк" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Сочи Парк</h3>
+                            <p>Первый тематический парк в России</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 10 Адлер -->
+                <div class="gallery-item tall">
+                    <img src="Image/travel/adler10.jpg" alt="Сочи Парк" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Сочи Парк</h3>
+                            <p>Первый тематический парк в России</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Самара -->
+        <div class="city-section">
+            <div class="city-header">
+                <h3 class="city-title">
+                    <i class="fas fa-water"></i>
+                    Самара
+                </h3>
+                <p class="city-description">Город на Волге, известный самой длинной в России набережной и космической историей.</p>
+            </div>
+
+            <div class="masonry-grid">
+                <!-- Фото 1 Самара -->
+                <div class="gallery-item wide">
+                    <img src="Image/travel/samara1.jpg" alt="Самарская набережная" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Набережная Волги</h3>
+                            <p>Самая длинная набережная в России (5 км)</p>
+                            <span class="photo-date">Июль 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 2 Самара -->
+                <div class="gallery-item tall">
+                    <img src="Image/travel/samara2.jpg" alt="Самарская площадь" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Площадь Славы</h3>
+                            <p>Монумент Славы в честь работников авиационной промышленности</p>
+                            <span class="photo-date">Июль 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 3 Самара -->
+                <div class="gallery-item">
+                    <img src="Image/travel/samara3.jpg" alt="Жигулёвские горы" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Жигулёвские горы</h3>
+                            <p>Природный заповедник на берегу Волги</p>
+                            <span class="photo-date">Июль 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 4 Самара -->
+                <div class="gallery-item wide">
+                    <img src="Image/travel/samara4.jpg" alt="Жигулёвские горы" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Жигулёвские горы</h3>
+                            <p>Природный заповедник на берегу Волги</p>
+                            <span class="photo-date">Июль 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 5 Самара -->
+                <div class="gallery-item">
+                    <img src="Image/travel/samara5.jpg" alt="Жигулёвские горы" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Жигулёвские горы</h3>
+                            <p>Природный заповедник на берегу Волги</p>
+                            <span class="photo-date">Июль 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 6 Самара -->
+                <div class="gallery-item tall">
+                    <img src="Image/travel/samara6.jpg" alt="Жигулёвские горы" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Жигулёвские горы</h3>
+                            <p>Природный заповедник на берегу Волги</p>
+                            <span class="photo-date">Июль 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 7 Самара -->
+                <div class="gallery-item tall">
+                    <img src="Image/travel/samara7.jpg" alt="Жигулёвские горы" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Жигулёвские горы</h3>
+                            <p>Природный заповедник на берегу Волги</p>
+                            <span class="photo-date">Июль 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 8 Самара -->
+                <div class="gallery-item wide">
+                    <img src="Image/travel/samara8.jpg" alt="Жигулёвские горы" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Жигулёвские горы</h3>
+                            <p>Природный заповедник на берегу Волги</p>
+                            <span class="photo-date">Июль 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 9 Самара -->
+                <div class="gallery-item ">
+                    <img src="Image/travel/samara9.jpg" alt="Жигулёвские горы" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Жигулёвские горы</h3>
+                            <p>Природный заповедник на берегу Волги</p>
+                            <span class="photo-date">Июль 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Тольятти -->
+        <div class="city-section">
+    <div class="city-header">
+        <h3 class="city-title">
+            <i class="fas fa-car"></i>
+            Тольятти
+        </h3>
+        <p class="city-description">Город на Волге, автомобильная столица России, известный АвтоВАЗом и уникальной планировкой.</p>
+    </div>
+
+    <div class="masonry-grid">
+        <!-- Фото 1 Тольятти -->
+        <div class="gallery-item extra-wide">
+            <img src="Image/travel/tolyatti1.jpg" alt="Площадь Свободы" loading="lazy">
+            <div class="photo-overlay">
+                <div class="photo-info">
+                    <h3>Площадь Свободы</h3>
+                    <p>Центральная площадь города с памятником В.Н. Татищеву</p>
+                    <span class="photo-date">Июль 2023</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Фото 2 Тольятти -->
+        <div class="gallery-item tall">
+            <img src="Image/travel/tolyatti2.jpg" alt="АвтоВАЗ" loading="lazy">
+            <div class="photo-overlay">
+                <div class="photo-info">
+                    <h3>АвтоВАЗ</h3>
+                    <p>Крупнейший производитель автомобилей в России</p>
+                    <span class="photo-date">Июль 2023</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Фото 3 Тольятти -->
+        <div class="gallery-item wide">
+            <img src="Image/travel/tolyatti3.jpg" alt="Волжский берег" loading="lazy">
+            <div class="photo-overlay">
+                <div class="photo-info">
+                    <h3>Набережная Волги</h3>
+                    <p>Живописный берег Волги и пристань</p>
+                    <span class="photo-date">Июль 2023</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Фото 4 Тольятти -->
+        <div class="gallery-item">
+            <img src="Image/travel/tolyatti4.jpg" alt="Технический музей" loading="lazy">
+            <div class="photo-overlay">
+                <div class="photo-info">
+                    <h3>Технический музей</h3>
+                    <p>Музей под открытым небом с техникой разных эпох</p>
+                    <span class="photo-date">Июль 2023</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Фото 5 Тольятти -->
+        <div class="gallery-item">
+            <img src="Image/travel/tolyatti5.jpg" alt="Технический музей" loading="lazy">
+            <div class="photo-overlay">
+                <div class="photo-info">
+                    <h3>Технический музей</h3>
+                    <p>Музей под открытым небом с техникой разных эпох</p>
+                    <span class="photo-date">Июль 2023</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Фото 6 Тольятти -->
+        <div class="gallery-item">
+            <img src="Image/travel/tolyatti6.jpg" alt="Технический музей" loading="lazy">
+            <div class="photo-overlay">
+                <div class="photo-info">
+                    <h3>Технический музей</h3>
+                    <p>Музей под открытым небом с техникой разных эпох</p>
+                    <span class="photo-date">Июль 2023\</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Фото 7 Тольятти -->
+        <div class="gallery-item">
+            <img src="Image/travel/tolyatti7.jpg" alt="Технический музей" loading="lazy">
+            <div class="photo-overlay">
+                <div class="photo-info">
+                    <h3>Технический музей</h3>
+                    <p>Музей под открытым небом с техникой разных эпох</p>
+                    <span class="photo-date">Июль 2023</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- Иваново -->
+        <div class="city-section">
+            <div class="city-header">
+                <h3 class="city-title">
+                    <i class="fas fa-tshirt"></i>
+                    Иваново
+                </h3>
+                <p class="city-description">Город невест, текстильная столица России с конструктивистской архитектурой.</p>
+            </div>
+
+            <div class="masonry-grid">
+                <!-- Фото 1 Иваново -->
+                <div class="gallery-item wide">
+                    <img src="Image/travel/ivanovo1.jpg" alt="Ивановский текстиль" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Текстильные фабрики</h3>
+                            <p>Архитектура промышленного конструктивизма</p>
+                            <span class="photo-date">Апрель 2020</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 2 Иваново -->
+                <div class="gallery-item">
+                    <img src="Image/travel/ivanovo2.jpg" alt="Площадь Революции" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Площадь Революции</h3>
+                            <p>Центральная площадь города с памятником борцам революции</p>
+                            <span class="photo-date">Апрель 2020</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Сочи -->
+        <div class="city-section">
+            <div class="city-header">
+                <h3 class="city-title">
+                    <i class="fas fa-palm-tree"></i>
+                    Сочи
+                </h3>
+                <p class="city-description">Крупнейший курортный город России, сочетающий морской отдых и горные ландшафты.</p>
+            </div>
+
+            <div class="masonry-grid">
+                <!-- Фото 1 Сочи -->
+                <div class="gallery-item extra-wide">
+                    <img src="Image/travel/sochi1.jpg" alt="Сочинская набережная" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Морской порт</h3>
+                            <p>Центральная набережная и порт Сочи</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 2 Сочи -->
+                <div class="gallery-item tall">
+                    <img src="Image/travel/sochi2.jpg" alt="Красная Поляна" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Красная Поляна</h3>
+                            <p>Горнолыжный курорт в горах Кавказа</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 3 Сочи -->
+                <div class="gallery-item">
+                    <img src="Image/travel/sochi3.jpg" alt="Сочинский дендрарий" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Сочинский дендрарий</h3>
+                            <p>Парк с уникальной субтропической растительностью</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 4 Сочи -->
+                <div class="gallery-item wide">
+                    <img src="Image/travel/sochi4.jpg" alt="Зимний театр" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-info">
+                            <h3>Зимний театр</h3>
+                            <p>Архитектурный символ Сочи в стиле сталинского ампира</p>
+                            <span class="photo-date">Август 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-footer">
+            <p class="photo-count">
+                <i class="fas fa-map-marked-alt"></i>
+                6 городов России • 17 фотографий • 2019-2024
+            </p>
+        </div>
+    </div>
+</section>
+<!-- Модальное окно для просмотра фотографий -->
+<div class="gallery-modal">
+    <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <img class="modal-image" src="" alt="">
+    </div>
+</div>
+
         <div class="ribbon-container">
             <div class="ribbon ribbon-left">
                 <div class="ribbon-content">
@@ -544,84 +972,6 @@
                 </div>
             </div>
         </div>
-
-        <section class="projects-section">
-            <div class="projects-content">
-                <h2>Мои проекты</h2>
-                <p class="subtitle">Разрабатываю полезные приложения и сервисы, которые делают жизнь людей удобнее.</p>
-                
-                <!-- Добавляем подсказку о прокрутке -->
-                <div class="scroll-hint">
-                    <i class="fas fa-arrow-right"></i>
-                    Листайте вправо, чтобы увидеть больше проектов
-                </div>
-                
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="Image/projects/skyway_logo.jpg" alt="Skyway">
-                        </div>
-                        <div>
-                            <h3>Skyway VPN</h3>
-                            <p>Надежный сетевой сервис для безопасного и стабильного подключения. Высокая скорость, защищенное соединение и простой интерфейс. Поддержка всех популярных платформ и устройств.</p>
-                        </div>
-                        <div class="project-author">
-                            <div class="author-info-container">
-                                <div class="author-avatar">
-                                    <img src="Image/logo/logo.jpg" alt="Author">
-                                </div>
-                                <div class="author-info">
-                                    <span class="author-role">Басов Максим - Основатель Skyway</span>
-                                    <span class="project-status">проект в Телеграм</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="Image/projects/timeflow_logo.jpg" alt="Planner">
-                        </div>
-                        <div>
-                            <h3>TimeFlow - iOS Планировщик</h3>
-                            <p>Умный планировщик задач для iOS с интуитивным интерфейсом. Помогает эффективно организовать время, установить приоритеты и отслеживать прогресс. Включает напоминания и аналитику продуктивности.</p>
-                        </div>
-                        <div class="project-author">
-                            <div class="author-info-container">
-                                <div class="author-avatar">
-                                    <img src="Image/logo/logo.jpg" alt="Author">
-                                </div>
-                                <div class="author-info">
-                                    <span class="author-role">Басов Максим - Основатель Skyway</span>
-                                    <span class="project-status">App Store</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="Image/projects/cryptorush_logo.jpg" alt="Game">
-                        </div>
-                        <div>
-                            <h3>CryptoRush - браузерная Игра</h3>
-                            <p>Увлекательная игра в жанре runner с элементами криптовалютного трейдинга. Собирайте монеты и уворачивайтесь от препятствий.</p>
-                        </div>
-                        <div class="project-author">
-                            <div class="author-info-container">
-                                <div class="author-avatar">
-                                    <img src="Image/logo/logo.jpg" alt="Author">
-                                </div>
-                                <div class="author-info">
-                                    <span class="author-role">Басов Максим - Основатель Skyway</span>
-                                    <span class="project-status">В разработке</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <div class="ribbon-container">
             <div class="ribbon ribbon-left">
                 <div class="ribbon-content">
@@ -631,101 +981,6 @@
                 </div>
             </div>
         </div>
-
-        <section class="video-section">
-            <div class="video-content">
-                <h2 class="video-title">Видео обзоры</h2>
-                <p class="video-subtitle">Полезные видео о нашем сервисе и его возможностях</p>
-                
-                <div class="video-grid">
-                    <div class="video-card">
-                        <div class="video-wrapper">
-                            <video 
-                                src="video/2025-02-14 10.59.54.mp4" 
-                                controls
-                                playsinline
-                                preload="metadata"
-                                poster="video/2025-02-14 10.59.54.mp4#t=0.1"
-                                onclick="event.stopPropagation()">
-                            </video>
-                        </div>
-                        <div class="video-info">
-                            <h3>Skyway поздравляет с 14 февраля</h3>
-                            <p>С праздником! Пусть в вашей жизни будет много радости и счастья! </p>
-                            <div class="video-meta">
-                                <span><i class="far fa-clock"></i> 0:18</span>
-                                <span><i class="far fa-eye"></i> 1.2K просмотров</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="video-card">
-                        <div class="video-wrapper">
-                            <video 
-                                src="video/ios_instructions.mp4" 
-                                controls
-                                playsinline
-                                preload="metadata"
-                                poster="video/ios_instructions.mp4#t=0.1"
-                                onclick="event.stopPropagation()">
-                            </video>
-                        </div>
-                        <div class="video-info">
-                            <h3>Как офрмить подписку на iOS</h3>
-                            <p>Пошаговое руководство по установке и настройке сервиса на iOS устройствах.</p>
-                            <div class="video-meta">
-                                <span><i class="far fa-clock"></i> 0:55</span>
-                                <span><i class="far fa-eye"></i> 2.5K просмотров</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="video-card">
-                        <div class="video-wrapper">
-                            <video 
-                                src="video/about_site.mp4" 
-                                controls
-                                playsinline
-                                preload="metadata"
-                                poster="video/about_site.mp4#t=0.1"
-                                onclick="event.stopPropagation()">
-                            </video>
-                        </div>
-                        <div class="video-info">
-                            <h3>Наш сайт и все о нем</h3>
-                            <p>Полезные советы и информация о нашем сайте.</p>
-                            <div class="video-meta">
-                                <span><i class="far fa-clock"></i> 0:31</span>
-                                <span><i class="far fa-eye"></i> 3.3к просмотров</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="stats-section">
-            <div class="stats-content">
-                <h2 class="stats-title">Skyway - надежный и быстрый сетевой сервис, которому доверяют сотни пользователей для безопасного и стабильного подключения.</h2>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">400+</div>
-                        <p class="stat-description">Активных пользователей доверяют нашему сервису ежедневно</p>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-number">4</div>
-                        <p class="stat-description">Высокопроизводительных сервера обеспечивают стабильную работу 24/7</p>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-number">5000+</div>
-                        <p class="stat-description">Строк кода написано для обеспечения безопасности и надежности сервиса</p>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section class="settings-section" id="contacts">
             <div class="settings-content">
                 <h2 class="settings-title">КОНТАКТЫ</h2>
@@ -769,193 +1024,6 @@
         </div>
     </footer>
     <script src="script.js"></script>
-
-    <!-- Добавляем оверлеи профилей для каждого партнера -->
-    <div class="profile-overlay" id="profileAlexander">
-        <div class="profile-card">
-            <div class="profile-top">
-                <div class="profile-avatar">
-                    <img src="Image/logo/arina.jpg" alt="Arina Profile">
-                </div>
-                <div class="profile-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">1.5K</span>
-                        <span class="stat-label">Подписчиков</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">50</span>
-                        <span class="stat-label">Подписок</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">45.6K</span>
-                        <span class="stat-label">Лайков</span>
-                    </div>
-                </div>
-            </div>
-            <div class="profile-info">
-                <div class="profile-name-section">
-                    <h2>Матченя Арина</h2>
-                    <svg class="verified-badge" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <p class="profile-bio">Фотограф</p>
-                <p class="profile-description">  
-                    Профессиональный фотограф с многолетним опытом работы.  
-                    Специализируется на портретной, свадебной, студийной и репортажной съемке.  
-                    Создает стильные, эмоциональные и качественные фотографии, которые передают атмосферу момента.  
-                    Индивидуальный подход к каждому клиенту, внимательность к деталям и высокий уровень обработки снимков.  
-                    Работает как с частными клиентами, так и с коммерческими проектами.  
-                    В портфолио – сотни довольных клиентов и успешно реализованных фотосессий.  
-                    Гарантирует комфортную атмосферу на съемке и отличный результат.  
-                </p>
-                
-                <div class="profile-details">
-                    <div class="profile-detail-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Пенза, Россия</span>
-                    </div>
-                    <div class="profile-detail-item">
-                        <i class="fas fa-briefcase"></i>
-                        <span>Профессиональный фотограф</span>
-                    </div>
-                    <div class="profile-detail-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>@Arina_Matchenya</span>
-                    </div>
-                </div>
-                <div class="profile-actions">
-                    <a href="https://t.me/Arina_Matchenya" class="follow-btn">
-                        <i class="fas fa-user-plus"></i>
-                        Подписаться
-                    </a>
-                    
-                    <button class="cancel-btn" onclick="togglePartnerProfile('Alexander')">
-                        <i class="fas fa-times"></i>
-                        Закрыть
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Профиль для Михаила -->
-    <div class="profile-overlay" id="profileMichael">
-        <div class="profile-card">
-            <div class="profile-top">
-                <div class="profile-avatar">
-                    <img src="Image/logo/logo.jpg" alt="Michael Profile">
-                </div>
-                <div class="profile-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">1.4K</span>
-                        <span class="stat-label">Подписчиков</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">154</span>
-                        <span class="stat-label">Подписок</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">25.7K</span>
-                        <span class="stat-label">Лайков</span>
-                    </div>
-                </div>
-            </div>
-            <div class="profile-info">
-                <div class="profile-name-section">
-                    <h2>Панкрашкин Михаил</h2>
-                    <svg class="verified-badge" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <p class="profile-bio">Основатель сервиса Skyway</p>
-                <p class="profile-description">Специалист по серверной части. Поддерживает работу сервиса. Бизнес-аналитик и администратор сервиса Skyway.</p>
-                <div class="profile-details">
-                    <div class="profile-detail-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Пенза, Россия</span>
-                    </div>
-                    <div class="profile-detail-item">
-                        <i class="fas fa-briefcase"></i>
-                        <span>Основатель Skyway</span>
-                    </div>
-                    <div class="profile-detail-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>michael@skyway.com</span>
-                    </div>
-                </div>
-                <div class="profile-actions">
-                    <button class="follow-btn">
-                        <i class="fas fa-user-plus"></i>
-                        Подписаться
-                    </button>
-                    <button class="cancel-btn" onclick="togglePartnerProfile('Michael')">
-                        <i class="fas fa-times"></i>
-                        Закрыть
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Профиль для Даниила -->
-    <div class="profile-overlay" id="profileDmitry">
-        <div class="profile-card">
-            <div class="profile-top">
-                <div class="profile-avatar">
-                    <img src="Image/logo/logo.jpg" alt="Daniil Profile">
-                </div>
-                <div class="profile-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">2.3K</span>
-                        <span class="stat-label">Подписчиков</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">453</span>
-                        <span class="stat-label">Подписок</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">84.5K</span>
-                        <span class="stat-label">Лайков</span>
-                    </div>
-                </div>
-            </div>
-            <div class="profile-info">
-                <div class="profile-name-section">
-                    <h2>Цветков Даниил</h2>
-                    <svg class="verified-badge" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <p class="profile-bio">Основатель сервиса Skyway</p>
-                <p class="profile-description">Маркетолог и администратор сервиса Skyway. Продвигает сервис в социальных сетях.</p>
-                <div class="profile-details">
-                    <div class="profile-detail-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Пенза, Россия</span>
-                    </div>
-                    <div class="profile-detail-item">
-                        <i class="fas fa-briefcase"></i>
-                        <span>Основатель Skyway</span>
-                    </div>
-                    <div class="profile-detail-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>daniil@skyway.com</span>
-                    </div>
-                </div>
-                <div class="profile-actions">
-                    <button class="follow-btn">
-                        <i class="fas fa-user-plus"></i>
-                        Подписаться
-                    </button>
-                    <button class="cancel-btn" onclick="togglePartnerProfile('Dmitry')">
-                        <i class="fas fa-times"></i>
-                        Закрыть
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Модальное окно для историй -->
     <div class="story-modal">

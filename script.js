@@ -201,3 +201,190 @@ document.addEventListener('click', (e) => {
         }
     }
 });
+// Галерея путешествий
+// Обновлённая галерея для группировки по городам
+document.addEventListener('DOMContentLoaded', function() {
+    // Создаём модальное окно
+    const modal = document.createElement('div');
+    modal.className = 'gallery-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <button class="modal-nav modal-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="modal-nav modal-next"><i class="fas fa-chevron-right"></i></button>
+            <img class="modal-image" src="" alt="">
+            <div class="modal-info">
+                <h3></h3>
+                <p></p>
+                <span class="modal-date"></span>
+                <span class="modal-city"></span>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Собираем все фотографии из всех городов
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const itemsArray = Array.from(galleryItems);
+    let currentIndex = 0;
+
+    // Находим элементы модального окна
+    const modalImage = modal.querySelector('.modal-image');
+    const modalTitle = modal.querySelector('.modal-info h3');
+    const modalDesc = modal.querySelector('.modal-info p');
+    const modalDate = modal.querySelector('.modal-date');
+    const modalCity = modal.querySelector('.modal-city');
+    const modalClose = modal.querySelector('.modal-close');
+    const modalPrev = modal.querySelector('.modal-prev');
+    const modalNext = modal.querySelector('.modal-next');
+
+    // Добавляем обработчики кликов на все фотографии
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            currentIndex = index;
+            openModal();
+        });
+    });
+
+    function openModal() {
+        const item = itemsArray[currentIndex];
+        const imgSrc = item.querySelector('img').src;
+        const title = item.querySelector('.photo-info h3').textContent;
+        const desc = item.querySelector('.photo-info p').textContent;
+        const date = item.querySelector('.photo-date').textContent;
+
+        // Находим город из родительской секции
+        const citySection = item.closest('.city-section');
+        const cityName = citySection ? citySection.querySelector('.city-title').textContent.replace(/\s+/g, ' ') : '';
+
+        modalImage.src = imgSrc;
+        modalTitle.textContent = title;
+        modalDesc.textContent = desc;
+        modalDate.textContent = date;
+        modalCity.textContent = cityName;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % itemsArray.length;
+        openModal();
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + itemsArray.length) % itemsArray.length;
+        openModal();
+    }
+
+    // Обработчики событий
+    modalClose.addEventListener('click', closeModal);
+    modalNext.addEventListener('click', showNext);
+    modalPrev.addEventListener('click', showPrev);
+
+    // Закрытие по клику вне изображения
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Управление клавиатурой
+    document.addEventListener('keydown', function(e) {
+        if (!modal.classList.contains('active')) return;
+
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+    });
+
+    // Плавное появление элементов при скролле
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Наблюдаем за всеми элементами галереи
+    galleryItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(item);
+    });
+});
+// Простая функция прокрутки
+function scrollToTravel() {
+    const travelSection = document.querySelector('.travel-section');
+    if (travelSection) {
+        travelSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+function scrollToTravel() {
+    const travelSection = document.getElementById('travel');
+    if (travelSection) {
+        travelSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Добавляем обработчик клика на индикатор прокрутки
+document.querySelector('.scroll-arrow').addEventListener('click', scrollToTravel);
+// Анимация чисел статистики при появлении
+document.addEventListener('DOMContentLoaded', function() {
+    const statNumbers = document.querySelectorAll('.stat-number-full');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const numberElement = entry.target;
+                const originalText = numberElement.textContent;
+                const target = parseInt(originalText.replace(/[^0-9]/g, ''));
+
+                // Анимируем только если число не анимировалось ранее
+                if (!numberElement.dataset.animated) {
+                    numberElement.dataset.animated = 'true';
+
+                    let count = 0;
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+
+                    const timer = setInterval(() => {
+                        count += increment;
+                        if (count >= target) {
+                            numberElement.textContent = originalText;
+                            clearInterval(timer);
+                        } else {
+                            numberElement.textContent = Math.floor(count).toLocaleString();
+                        }
+                    }, 16);
+                }
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    statNumbers.forEach(number => {
+        observer.observe(number);
+    });
+});
