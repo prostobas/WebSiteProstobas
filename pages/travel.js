@@ -240,27 +240,6 @@ function initTimelineAnimation() {
         observer.observe(item);
     });
 }
-
-// Анимация статистики
-function initStatsAnimation() {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateValue(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.5
-    });
-    
-    statNumbers.forEach(number => {
-        observer.observe(number);
-    });
-}
-
 // Анимация чисел
 function animateValue(element) {
     const finalValue = parseFloat(element.textContent.replace('k', '000').replace('+', ''));
