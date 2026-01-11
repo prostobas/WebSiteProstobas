@@ -38,11 +38,6 @@
     font-weight: 500;
 }
 
-.menu-link:hover {
-    background: rgba(65, 105, 225, 0.2);
-    color: #4169E1;
-}
-
 /* Статистика в мобильном меню */
 .menu-stats {
     display: flex;
@@ -73,7 +68,6 @@
 }
 
 /* Стили для travel blog - секция home */
-/* Стили для минималистичного дизайна home */
 #home {
     min-height: 100vh;
     height: 100vh;
@@ -83,6 +77,24 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.home-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 20px; /* Добавляем отступ сверху для контента */
+}
+
+/* Гарантируем, что индикатор прокрутки не будет накладываться на контент */
+.scroll-down {
+    position: absolute;
+    z-index: 10;
+}
+
+/* Увеличиваем отступ снизу для основного контента */
+.hero-center {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 /* Фоновая фотография на весь экран */
@@ -147,7 +159,7 @@
 }
 
 .hero-subtitle {
-    color: #4169E1;
+    color:#dddddd;
     font-size: 1.5rem;
     margin-bottom: 30px;
     font-weight: 500;
@@ -173,12 +185,6 @@
     font-weight: 500;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
-}
-
-.hero-tag:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-3px);
-    border-color: #4169E1;
 }
 
 .hero-tag i {
@@ -268,29 +274,6 @@
     backdrop-filter: blur(5px);
 }
 
-.scroll-arrow::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border: 2px solid rgba(65, 105, 225, 0.4);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
-
-.scroll-arrow:hover {
-    background: rgba(65, 105, 225, 0.4);
-    border-color: #4169E1;
-    transform: scale(1.1);
-}
-
-.scroll-arrow:hover i {
-    color: #4169E1;
-    transform: translateY(3px);
-}
-
 .scroll-arrow i {
     font-size: 1.3rem;
     color: #FFFFFF;
@@ -312,6 +295,7 @@
     color: rgba(255, 255, 255, 0.7);
     font-weight: 400;
 }
+
 /* Анимации */
 @keyframes float {
     0%, 100% {
@@ -332,81 +316,6 @@
     60% {
         transform: translateY(-4px);
     }
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1.2);
-        opacity: 0;
-    }
-}
-
-/* Эффект свечения при наведении */
-.scroll-arrow::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(65, 105, 225, 0.2) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.scroll-arrow:hover::after {
-    opacity: 1;
-}
-
-/* Медиа-запросы для мобильных устройств */
-@media screen and (max-width: 768px) {
-    .scroll-down {
-        bottom: 30px;
-    }
-
-    .scroll-arrow {
-        width: 45px;
-        height: 45px;
-    }
-
-    .scroll-arrow i {
-        font-size: 1.2rem;
-    }
-
-    .scroll-text span {
-        font-size: 0.8rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .scroll-down {
-        bottom: 25px;
-        gap: 8px;
-    }
-
-    .scroll-arrow {
-        width: 40px;
-        height: 40px;
-    }
-
-    .scroll-arrow i {
-        font-size: 1.1rem;
-    }
-}
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
 }
 
 /* Стили для карточек во всю ширину */
@@ -437,31 +346,6 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-}
-
-.stat-card-full:hover {
-    transform: translateY(-10px);
-    border-color: #4169E1;
-    box-shadow: 0 20px 40px rgba(65, 105, 225, 0.2);
-}
-
-.stat-card-full::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg,
-        rgba(65, 105, 225, 0.1) 0%,
-        rgba(50, 205, 50, 0.05) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.stat-card-full:hover::before {
-    opacity: 1;
 }
 
 .stat-icon-full {
@@ -508,17 +392,6 @@
     padding: 100px 20px;
     position: relative;
     overflow: hidden;
-}
-
-.next-trip-fullwidth::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, transparent 70%);
-    opacity: 0.3;
 }
 
 .trip-content {
@@ -602,12 +475,6 @@
     transition: all 0.3s ease;
 }
 
-.highlight-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-5px);
-    border-color: #FF8C00;
-}
-
 .highlight-item i {
     color: #FF8C00;
     font-size: 1.2rem;
@@ -619,17 +486,6 @@
     padding: 100px 20px;
     position: relative;
     overflow: hidden;
-}
-
-.recent-trip-fullwidth::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
-    opacity: 0.3;
 }
 
 .recent-content {
@@ -705,22 +561,10 @@
     transition: all 0.3s ease;
 }
 
-.feature:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-5px);
-    border-color: #4CAF50;
-}
-
 .feature i {
     color: #4CAF50;
     font-size: 2rem;
     margin-bottom: 10px;
-}
-
-.feature {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    font-weight: 500;
 }
 
 /* Адаптивность */
@@ -836,5 +680,359 @@
 
     .recent-header h2 {
         font-size: 2.2rem;
+    }
+}
+
+/* Исправляем логотип на мобильных устройствах */
+@media screen and (max-width: 768px) {
+    .logo {
+        font-size: 1.8rem;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        margin: 0;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Убираем лишние отступы */
+    header {
+        height: 60px;
+        min-height: 60px;
+        padding: 0 15px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Исправляем кнопку меню */
+    .menu-btn {
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 380px) {
+    .logo {
+        font-size: 1.6rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+    }
+}
+
+/* Исправляем индикатор прокрутки на мобильных */
+@media screen and (max-width: 768px) {
+    #home {
+        height: calc(100vh - 60px); /* Учитываем высоту header */
+        margin-top: 60px; /* Добавляем отступ сверху */
+    }
+
+    .scroll-down {
+        bottom: 20px; /* Уменьшаем отступ снизу */
+        gap: 8px;
+    }
+
+    .hero-center {
+        min-height: calc(60vh - 60px); /* Уменьшаем минимальную высоту */
+        padding-top: 20px; /* Добавляем отступ сверху */
+    }
+
+    /* Уменьшаем заголовок */
+    .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    /* Уменьшаем отступы для контента */
+    .home-content {
+        padding: 0 15px;
+    }
+
+    /* Уменьшаем размеры индикатора */
+    .scroll-arrow {
+        width: 35px;
+        height: 35px;
+    }
+
+    .scroll-arrow i {
+        font-size: 1rem;
+    }
+
+    .scroll-text span {
+        font-size: 0.75rem;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    #home {
+        height: calc(100vh - 60px);
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        padding-top: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-tags {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .hero-tag {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .explore-btn {
+        padding: 15px 25px;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .scroll-down {
+        bottom: 15px;
+    }
+
+    .scroll-arrow {
+        width: 30px;
+        height: 30px;
+    }
+
+    .scroll-arrow i {
+        font-size: 0.9rem;
+    }
+
+    .scroll-text span {
+        font-size: 0.7rem;
+    }
+}
+
+/* Для iPhone SE и похожих устройств */
+@media screen and (max-width: 380px) {
+    #home {
+        height: calc(100vh - 50px);
+        margin-top: 50px;
+    }
+
+    header {
+        height: 50px;
+        min-height: 50px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+        max-width: 180px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        padding-top: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .explore-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    .scroll-down {
+        bottom: 10px;
+    }
+}
+
+/* Исправляем расположение элементов в секции home на мобильных */
+@media screen and (max-width: 768px) {
+    #home {
+        height: auto;
+        min-height: calc(100vh - 60px);
+        padding: 60px 0 80px 0; /* Увеличиваем отступ снизу */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 20px 15px 30px 15px; /* Добавляем отступы */
+    }
+
+    .hero-center {
+        min-height: auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 0 40px 0; /* Добавляем отступ снизу */
+    }
+
+    /* Увеличиваем отступы между элементами */
+    .hero-title {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .hero-tags {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .hero-tag {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+
+    /* Кнопка с увеличенным отступом снизу */
+    .explore-btn {
+        padding: 16px 30px;
+        font-size: 1.1rem;
+        margin-top: 0;
+        margin-bottom: 40px; /* Увеличиваем отступ снизу */
+    }
+
+    /* Позиционируем индикатор прокрутки */
+    .scroll-down {
+        position: relative;
+        bottom: auto;
+        margin-top: auto;
+        padding-top: 20px;
+        animation: float 3s infinite ease-in-out;
+    }
+
+    .scroll-arrow {
+        width: 35px;
+        height: 35px;
+        margin: 0 auto;
+    }
+
+    .scroll-arrow i {
+        font-size: 1rem;
+    }
+
+    .scroll-text span {
+        font-size: 0.75rem;
+        margin-top: 5px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    #home {
+        min-height: calc(100vh - 60px);
+        padding: 50px 0 70px 0;
+    }
+
+    .hero-center {
+        padding: 15px 0 30px 0;
+    }
+
+    .hero-title {
+        font-size: 1.9rem;
+        margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-tags {
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .hero-tag {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+    .explore-btn {
+        padding: 14px 25px;
+        font-size: 1rem;
+        margin-bottom: 35px;
+    }
+
+    .scroll-down {
+        padding-top: 15px;
+    }
+
+    .scroll-arrow {
+        width: 32px;
+        height: 32px;
+    }
+
+    .scroll-arrow i {
+        font-size: 0.9rem;
+    }
+}
+
+/* Для iPhone SE и похожих устройств */
+@media screen and (max-width: 380px) {
+    #home {
+        min-height: calc(100vh - 50px);
+        padding: 40px 0 60px 0;
+    }
+
+    .hero-center {
+        padding: 10px 0 25px 0;
+    }
+
+    .hero-title {
+        font-size: 1.7rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .explore-btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    .scroll-down {
+        padding-top: 10px;
+    }
+
+    .scroll-arrow {
+        width: 30px;
+        height: 30px;
+    }
+
+    .scroll-arrow i {
+        font-size: 0.85rem;
+    }
+
+    .scroll-text span {
+        font-size: 0.7rem;
     }
 }

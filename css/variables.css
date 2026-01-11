@@ -1,0 +1,17 @@
+/* variables.css */
+:root {
+    --deep-purple: #4B0082;
+    --bright-purple: #8A2BE2;
+    --light-purple: #9370DB;
+    --deep-blue: #191970;
+    --bright-blue: #4169E1;
+    --pure-white: #FFFFFF;
+    --off-white: #F8F8FF;
+    --deep-black: #0A0A0A;
+
+    /* Дополнительные цвета */
+    --orange: #FF8C00;
+    --green: #32CD32;
+    --pink: #FF1493;
+    --turquoise: #00CED1;
+}
