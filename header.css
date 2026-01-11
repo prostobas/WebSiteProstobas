@@ -566,6 +566,442 @@
     font-size: 2rem;
     margin-bottom: 10px;
 }
+/* ============ СЕКЦИЯ КОНТАКТОВ (Travel Blog стиль) ============ */
+.contacts-section {
+    padding: 80px 20px;
+    background: #000000;
+    position: relative;
+    overflow: hidden;
+}
+
+.contacts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contacts-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.contacts-title {
+    color: #FFFFFF;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contacts-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #4169E1, #32CD32);
+    border-radius: 2px;
+}
+
+.contacts-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 30px auto 0;
+    line-height: 1.6;
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.contact-card,
+.support-card,
+.social-card {
+    background: rgba(18, 18, 18, 0.8);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before,
+.support-card::before,
+.social-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4169E1, #32CD32);
+}
+
+.support-card::before {
+    background: linear-gradient(90deg, #FF6B6B, #FF8C00);
+}
+
+.social-card::before {
+    background: linear-gradient(90deg, #9370DB, #00CED1);
+}
+
+.contact-card:hover,
+.support-card:hover,
+.social-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(65, 105, 225, 0.15);
+    border-color: rgba(65, 105, 225, 0.3);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    background: rgba(65, 105, 225, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon-wrapper i {
+    font-size: 1.5rem;
+    color: #4169E1;
+}
+
+.support-card .card-icon-wrapper {
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.support-card .card-icon-wrapper i {
+    color: #FF6B6B;
+}
+
+.social-card .card-icon-wrapper {
+    background: rgba(147, 112, 219, 0.1);
+}
+
+.social-card .card-icon-wrapper i {
+    color: #9370DB;
+}
+
+.card-header h3 {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.contact-field {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-field:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.field-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.field-label i {
+    color: #4169E1;
+}
+
+.field-value {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-left: 30px;
+}
+
+.status-active {
+    color: #32CD32;
+    font-weight: 600;
+}
+
+.card-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.travel-stats {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.stat i {
+    color: #4169E1;
+}
+
+.support-message {
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.support-message i {
+    font-size: 1.5rem;
+    color: #FF6B6B;
+}
+
+.support-message p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.payment-card {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.payment-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(65, 105, 225, 0.2) 0%, transparent 70%);
+}
+
+.card-design {
+    position: relative;
+    z-index: 2;
+}
+
+.card-chip {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+.card-bank {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card-number {
+    color: #FFFFFF;
+    font-size: 1.8rem;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card-holder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.card-valid {
+    color: #32CD32;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.support-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.copy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #4169E1, #2f63ff);
+    border: none;
+    border-radius: 25px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(45deg, #2f63ff, #4169E1);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(65, 105, 225, 0.3);
+}
+
+.action-hint {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.action-hint i {
+    color: #FFD700;
+}
+
+.social-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link.instagram .social-icon {
+    background: linear-gradient(45deg, #833AB4, #FD1D1D, #F77737);
+}
+
+.social-link.telegram .social-icon {
+    background: #0088CC;
+}
+
+.social-link.youtube .social-icon {
+    background: #FF0000;
+}
+
+.social-icon i {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+}
+
+.social-info {
+    flex: 1;
+}
+
+.social-name {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.social-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    display: block;
+}
+
+.contacts-footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.footer-stat:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.footer-stat i {
+    color: #4169E1;
+}
+
 
 /* Адаптивность */
 @media screen and (max-width: 1024px) {

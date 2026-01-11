@@ -16,6 +16,7 @@ main {
     padding: 0;
     margin: 0;
 }
+
 /* ============ ГАЛЕРЕЯ ПУТЕШЕСТВИЙ ============ */
 .travel-gallery {
     background: #000000;
@@ -83,6 +84,8 @@ main {
     cursor: pointer;
     animation: fadeIn 0.5s ease forwards;
     opacity: 0;
+    width: 100%;
+    display: block;
 }
 
 @keyframes fadeIn {
@@ -358,244 +361,694 @@ main {
     transform: scale(1.1);
 }
 
-/* ============ СЕКЦИЯ FAQ (Обо мне) ============ */
+/* ============ СЕКЦИЯ FAQ (Обо мне) - Travel Blog Стиль ============ */
 .faq-section {
     padding: 80px 20px;
-    background: #000000;
+    background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(65, 105, 225, 0.5), transparent);
 }
 
 .faq-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .faq-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #FFFFFF;
     margin-bottom: 20px;
-    text-align: left;
-    font-weight: bold;
-    margin-left: 20px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.faq-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #4169E1, #32CD32);
+    border-radius: 2px;
 }
 
 .faq-subtitle {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1.1rem;
-    text-align: left;
+    font-size: 1.2rem;
+    text-align: center;
     max-width: 800px;
-    margin-left: 20px;
-    margin-bottom: 40px;
+    margin: 40px auto 60px;
     line-height: 1.6;
+    padding: 0 20px;
 }
 
+/* Grid layout для карточек */
 .faq-grid {
-    max-width: 1200px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Стиль карточек в стиле travel blog */
 .faq-card {
-    background: rgba(18, 18, 18, 0.95);
+    background: rgba(18, 18, 18, 0.8);
     border-radius: 20px;
-    padding: 25px;
+    padding: 30px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    box-sizing: border-box;
 }
+
+.faq-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4169E1, #32CD32);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.faq-card:hover::before {
+    opacity: 1;
+}
+
+.faq-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(65, 105, 225, 0.15),
+                0 0 0 1px rgba(65, 105, 225, 0.1);
+    background: rgba(25, 25, 25, 0.9);
+}
+
+/* Цветовые акценты для карточек */
+.faq-card:nth-child(1) { border-color: rgba(65, 105, 225, 0.2); }
+.faq-card:nth-child(2) { border-color: rgba(50, 205, 50, 0.2); }
+.faq-card:nth-child(3) { border-color: rgba(255, 140, 0, 0.2); }
+.faq-card:nth-child(4) { border-color: rgba(147, 112, 219, 0.2); }
+.faq-card:nth-child(5) { border-color: rgba(255, 20, 147, 0.2); }
+.faq-card:nth-child(6) { border-color: rgba(0, 206, 209, 0.2); }
 
 .faq-card h3 {
     color: #FFFFFF;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    padding-left: 35px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-.faq-card p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    font-family: monospace;
+.faq-card h3::before {
+    content: '🗺️';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
 }
 
-/* ============ СЕКЦИЯ БЛОГ ============ */
-.blog-section {
+/* Иконки для каждого заголовка */
+.faq-card:nth-child(1) h3::before { content: '👤'; color: #4169E1; }
+.faq-card:nth-child(2) h3::before { content: '💼'; color: #32CD32; }
+.faq-card:nth-child(3) h3::before { content: '🚀'; color: #FF8C00; }
+.faq-card:nth-child(4) h3::before { content: '🎯'; color: #9370DB; }
+.faq-card:nth-child(5) h3::before { content: '🎓'; color: #FF1493; }
+.faq-card:nth-child(6) h3::before { content: '⭐'; color: #00CED1; }
+
+.faq-card p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    text-align: justify;
+    padding-left: 35px;
+}
+
+/* Анимация появления карточек */
+.faq-card {
+    opacity: 0;
+    animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Задержки анимации */
+.faq-card:nth-child(1) { animation-delay: 0.1s; }
+.faq-card:nth-child(2) { animation-delay: 0.2s; }
+.faq-card:nth-child(3) { animation-delay: 0.3s; }
+.faq-card:nth-child(4) { animation-delay: 0.4s; }
+.faq-card:nth-child(5) { animation-delay: 0.5s; }
+.faq-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Декоративный элемент */
+.faq-grid::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(65, 105, 225, 0.1) 0%, transparent 70%);
+    z-index: 0;
+}
+/* ============ СЕКЦИЯ СОВЕТОВ ПУТЕШЕСТВЕННИКАМ ============ */
+.tips-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.tips-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #FF8C00, transparent);
+}
+
+.tips-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.tips-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.tips-title {
+    color: #FFFFFF;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.tips-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #FF8C00, #FFD700);
+    border-radius: 2px;
+}
+
+.tips-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 30px auto 0;
+    line-height: 1.6;
+}
+
+/* Grid для советов */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Карточка совета */
+.tip-card {
+    background: rgba(25, 25, 25, 0.8);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 140, 0, 0.2);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tip-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #FF8C00, #FFD700);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tip-card:hover::before {
+    opacity: 1;
+}
+
+.tip-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(255, 140, 0, 0.15),
+                0 0 0 1px rgba(255, 140, 0, 0.1);
+    background: rgba(30, 30, 30, 0.9);
+}
+
+.tip-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.tip-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 140, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.tip-icon i {
+    font-size: 1.8rem;
+    color: #FF8C00;
+}
+
+.tip-card-header h3 {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.tip-content {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Детали совета */
+.tip-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tip-detail {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background: rgba(255, 140, 0, 0.1);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 140, 0, 0.2);
+}
+
+.tip-detail i {
+    color: #FFD700;
+}
+
+/* Анимация карточек */
+.tip-card {
+    opacity: 0;
+    animation: slideUp 0.6s ease forwards;
+}
+
+.tip-card:nth-child(1) { animation-delay: 0.1s; }
+.tip-card:nth-child(2) { animation-delay: 0.2s; }
+.tip-card:nth-child(3) { animation-delay: 0.3s; }
+.tip-card:nth-child(4) { animation-delay: 0.4s; }
+.tip-card:nth-child(5) { animation-delay: 0.5s; }
+.tip-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Специальный совет */
+.featured-tip {
+    grid-column: span 2;
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(25, 25, 25, 0.9));
+    border: 2px solid rgba(255, 140, 0, 0.3);
+}
+
+.featured-tip .tip-icon {
+    background: rgba(255, 215, 0, 0.2);
+}
+
+.featured-tip .tip-icon i {
+    color: #FFD700;
+}
+
+.featured-tip::before {
+    background: linear-gradient(90deg, #FFD700, #FF8C00);
+}
+
+/* Индикатор важности */
+.tip-importance {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 5px 15px;
+    background: rgba(255, 140, 0, 0.2);
+    border-radius: 15px;
+    color: #FF8C00;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 140, 0, 0.3);
+    z-index: 2;
+    max-width: 120px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ============ СЕКЦИЯ КОНТАКТОВ (Travel Blog стиль) ============ */
+.contacts-section {
     padding: 80px 20px;
     background: #000000;
+    position: relative;
+    overflow: hidden;
 }
 
-.blog-content {
+.contacts-container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.blog-card {
-    background: rgba(18, 18, 18, 0.95);
+.contacts-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.contacts-title {
+    color: #FFFFFF;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contacts-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #4169E1, #32CD32);
+    border-radius: 2px;
+}
+
+.contacts-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 30px auto 0;
+    line-height: 1.6;
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.contact-card,
+.support-card,
+.social-card {
+    background: rgba(18, 18, 18, 0.8);
     border-radius: 20px;
     padding: 30px;
-    border: 1px solid rgba(26, 170, 236, 0.486);
-    display: flex;
-    gap: 40px;
-    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
     overflow: hidden;
 }
 
-.blog-card-content {
-    flex: 1;
+.contact-card::before,
+.support-card::before,
+.social-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4169E1, #32CD32);
+}
+
+.support-card::before {
+    background: linear-gradient(90deg, #FF6B6B, #FF8C00);
+}
+
+.social-card::before {
+    background: linear-gradient(90deg, #9370DB, #00CED1);
+}
+
+.contact-card:hover,
+.support-card:hover,
+.social-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(65, 105, 225, 0.15);
+    border-color: rgba(65, 105, 225, 0.3);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    background: rgba(65, 105, 225, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon-wrapper i {
+    font-size: 1.5rem;
+    color: #4169E1;
+}
+
+.support-card .card-icon-wrapper {
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.support-card .card-icon-wrapper i {
+    color: #FF6B6B;
+}
+
+.social-card .card-icon-wrapper {
+    background: rgba(147, 112, 219, 0.1);
+}
+
+.social-card .card-icon-wrapper i {
+    color: #9370DB;
+}
+
+.card-header h3 {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.contact-field {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-field:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.field-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.field-label i {
+    color: #4169E1;
+}
+
+.field-value {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-left: 30px;
+}
+
+.status-active {
+    color: #32CD32;
+    font-weight: 600;
+}
+
+.card-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.travel-stats {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.stat i {
+    color: #4169E1;
+}
+
+.support-message {
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.support-message i {
+    font-size: 1.5rem;
+    color: #FF6B6B;
+}
+
+.support-message p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.payment-card {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.payment-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(65, 105, 225, 0.2) 0%, transparent 70%);
+}
+
+.card-design {
     position: relative;
     z-index: 2;
 }
 
-.blog-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.card-chip {
+    font-size: 2rem;
+    color: #FFD700;
     margin-bottom: 20px;
-    color: #FFFFFF;
 }
 
-.blog-header i {
+.card-bank {
+    color: #FFFFFF;
     font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
-.blog-header span {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
-
-.blog-card img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.blog-card h3 {
-    font-size: 2.5rem;
+.card-number {
     color: #FFFFFF;
-    margin-bottom: 20px;
-    font-weight: bold;
-    line-height: 1.2;
+    font-size: 1.8rem;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-weight: 600;
 }
 
-.blog-card p {
+.card-holder {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
-.blog-author {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
+.card-valid {
+    color: #32CD32;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
-.author-details {
+.support-actions {
     display: flex;
     flex-direction: column;
-}
-
-.author-name {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.9rem;
-}
-
-.read-time {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.8rem;
-}
-
-.read-more-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    margin: 20px 0;
-}
-
-.read-more-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-}
-
-/* Обновляем стили для градиентного блока */
-.blog-gradient-box {
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(
-        45deg,
-        rgba(255, 20, 147, 0.8),
-        rgba(255, 140, 0, 0.8),
-        rgba(65, 105, 225, 0.8),
-        rgba(50, 205, 50, 0.8)
-    );
-    border-radius: 20px;
-    flex-shrink: 0;
-    animation: gradientAnimation 10s ease infinite;
-    background-size: 300% 300%;
-}
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* ============ СЕКЦИЯ КОНТАКТЫ ============ */
-.settings-section {
-    padding: 40px;
-    background: #000000;
-    color: #FFFFFF;
-}
-
-.settings-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.settings-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
-}
-
-.settings-card {
-    background: rgba(18, 18, 18, 0.95);
-    border-radius: 20px;
-    padding: 30px;
-    border: 1px solid rgba(26, 170, 236, 0.486);
-    position: relative;
-    overflow: hidden;
-}
-
-.gradient-box {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40%;
-    background: linear-gradient(45deg,
-        rgba(65, 105, 225, 0.1),
-        rgba(50, 205, 50, 0.1),
-        rgba(255, 20, 147, 0.1),
-        rgba(255, 140, 0, 0.1)
-    );
-    filter: blur(10px);
-    z-index: 0;
+    gap: 15px;
 }
 
 .copy-btn {
@@ -603,103 +1056,145 @@ main {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 12px 30px;
-    background: linear-gradient(45deg, #2f63ff, #1E90FF);
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #4169E1, #2f63ff);
     border: none;
     border-radius: 25px;
     color: #FFFFFF;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .copy-btn:hover {
-    background: linear-gradient(45deg, #1E90FF, #2f63ff);
+    background: linear-gradient(45deg, #2f63ff, #4169E1);
     transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(65, 105, 225, 0.3);
 }
 
-.support-message {
-    margin-top: 20px;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
+.action-hint {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    padding: 10px;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    border-radius: 10px;
+}
+
+.action-hint i {
+    color: #FFD700;
+}
+
+.social-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link.instagram .social-icon {
+    background: linear-gradient(45deg, #833AB4, #FD1D1D, #F77737);
+}
+
+.social-link.telegram .social-icon {
+    background: #0088CC;
+}
+
+.social-link.youtube .social-icon {
+    background: #FF0000;
+}
+
+.social-icon i {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+}
+
+.social-info {
+    flex: 1;
+}
+
+.social-name {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.social-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    display: block;
+}
+
+.contacts-footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
     transition: all 0.3s ease;
 }
 
-.support-message i {
-    color: #FF6B6B;
-}
-
-.support-message:hover {
+.footer-stat:hover {
     background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
-.settings-field {
-    position: relative;
-    z-index: 1;
-    margin-bottom: 15px;
-}
-
-.name-value, .email-value {
-    color: #2f63ff;
-    font-weight: 500;
-}
-
-.settings-title {
-    font-size: 2.5rem;
-    color: #FFFFFF;
-    margin-bottom: 30px;
-    text-align: left;
-    font-weight: bold;
-    padding-left: 20px;
-}
-
-/* Обновляем сетку после удаления блока Account */
-.settings-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.card-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background: transparent;
-    margin-top: 20px;
-}
-
-.card-icon {
-    font-size: 2.5rem;
+.footer-stat i {
     color: #4169E1;
-    margin-bottom: 20px;
-}
-
-.card-number {
-    font-size: 1.3rem;
-    color: #FFFFFF;
-    font-family: monospace;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-}
-
-.card-name {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.settings-card h3 {
-    color: #FFFFFF;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
 }
 
 /* ============ ФУТЕР ============ */
@@ -725,112 +1220,8 @@ main {
 }
 
 /* ============ МОБИЛЬНЫЕ СТИЛИ ============ */
-@media screen and (max-width: 768px) {
 
-    .blog-card {
-        padding: 20px;
-        gap: 20px;
-        flex-direction: column;
-    }
-
-    .blog-gradient-box {
-        width: 100%;
-        height: 200px;
-        margin: 10px 0;
-        border-radius: 15px;
-    }
-
-    .blog-card h3 {
-        font-size: 1.8rem;
-        line-height: 1.3;
-        word-wrap: break-word;
-    }
-
-    .settings-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .settings-title {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        padding-left: 10px;
-    }
-
-    .faq-section {
-        padding: 40px 0;
-        overflow: visible;
-    }
-
-    .faq-grid {
-        display: flex;
-        gap: 10px;
-        overflow-x: auto;
-        padding-left: 20px;
-        padding-right: 20px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .faq-card {
-        min-width: 300px;
-        width: 85%;
-        flex-shrink: 0;
-        scroll-snap-align: start;
-        padding: 25px;
-        height: auto;
-        margin-right: 0;
-    }
-
-    .faq-card:first-child {
-        margin-left: 20px;
-    }
-
-    .faq-card:last-child {
-        margin-right: 60px;
-    }
-
-    .faq-grid {
-        padding-right: 40px;
-    }
-
-    .faq-title {
-        font-size: 2rem;
-        margin-bottom: 15px;
-        margin-left: 20px;
-    }
-
-    .faq-subtitle {
-        font-size: 1rem;
-        margin-left: 20px;
-        margin-bottom: 30px;
-    }
-
-    .masonry-grid {
-        columns: 2;
-    }
-
-    .gallery-title {
-        font-size: 2.8rem;
-    }
-
-    .gallery-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .city-section {
-        margin-bottom: 60px;
-        padding: 30px 15px;
-    }
-
-    .city-title {
-        font-size: 2rem;
-    }
-
-    .city-description {
-        font-size: 1.1rem;
-    }
-}
-
+/* Для планшетов и небольших экранов */
 @media screen and (max-width: 1024px) {
     .masonry-grid {
         columns: 3;
@@ -851,39 +1242,279 @@ main {
     .gallery-item.extra-wide {
         height: 320px;
     }
-}
 
-@media screen and (max-width: 480px) {
-    .blog-gradient-box {
-        height: 150px;
+    .faq-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
-    .blog-card h3 {
+    .faq-title {
+        font-size: 3rem;
+    }
+
+    .faq-subtitle {
         font-size: 1.1rem;
+    }
+    .tip-importance {
+        padding: 4px 12px;
+        font-size: 0.8rem;
+        max-width: 100px;
+    }
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .featured-tip {
+        grid-column: span 2;
+    }
+
+.contacts-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .travel-gallery {
+        padding: 60px 0;
+    }
+
+    .masonry-grid {
+        columns: 2;
+    }
+
+    .gallery-title {
+        font-size: 2.8rem;
+    }
+
+    .gallery-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .gallery-item {
+        height: 250px;
+    }
+
+    .gallery-item.tall {
+        height: 350px;
+    }
+
+    .gallery-item.wide {
+        height: 200px;
+    }
+
+    .gallery-item.extra-wide {
+        height: 280px;
+    }
+
+    .city-section {
+        margin-bottom: 60px;
+        padding: 30px 15px;
+    }
+
+    .city-title {
+        font-size: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .city-description {
+        font-size: 1.1rem;
+    }
+
+    /* FAQ секция */
+    .faq-section {
+        padding: 60px 15px;
+    }
+
+    .faq-title {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .faq-title::after {
+        bottom: -10px;
+        width: 80px;
+    }
+
+    .faq-subtitle {
+        font-size: 1.1rem;
+        margin: 30px auto 40px;
+        padding: 0 10px;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 100%;
+    }
+
+    .faq-card {
+        padding: 25px;
+        animation: none;
+        opacity: 1;
+        margin: 0;
+        min-width: auto;
+    }
+
+    .faq-card h3 {
+        font-size: 1.5rem;
+        padding-left: 30px;
+        margin-bottom: 15px;
+    }
+
+    .faq-card p {
+        font-size: 1rem;
+        line-height: 1.6;
+        padding-left: 30px;
+    }
+.tip-card {
+        padding: 25px 25px 25px 25px; /* Добавляем отступ слева */
+        animation: none;
+        opacity: 1;
+        margin: 0;
+        min-width: auto;
+        position: relative;
+    }
+
+    .tip-importance {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 4px 10px;
+        font-size: 0.75rem;
+        max-width: 90px;
+    }
+
+    .tip-card-header {
+        padding-right: 100px; /* Оставляем место для индикатора важности */
+        margin-bottom: 15px;
+        position: relative;
+        min-height: 60px; /* Минимальная высота для заголовка с иконкой */
+    }
+
+    .tip-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .tip-icon i {
+        font-size: 1.5rem;
+    }
+
+    .tip-card-header h3 {
+        font-size: 1.3rem;
         line-height: 1.3;
-        word-wrap: break-word;
+        margin-top: 5px;
+    }
+    /* Советы */
+    .tips-section {
+        padding: 60px 15px;
+    }
+
+    .tips-title {
+        font-size: 2.5rem;
+    }
+
+    .tips-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .featured-tip {
+        grid-column: span 1;
+    }
+
+    .tip-card {
+        padding: 25px;
+        animation: none;
+        opacity: 1;
+        margin: 0;
+        min-width: auto;
+    }
+
+    .tip-card-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .tip-content {
+        font-size: 1rem;
+    }
+
+    /* Контакты */
+   .contacts-section {
+        padding: 60px 15px !important;
+    }
+
+    .contacts-title {
+        font-size: 2.5rem !important;
+    }
+
+    .contacts-subtitle {
+        font-size: 1.1rem !important;
+    }
+
+    .contacts-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .footer-stats {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .footer-stat {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 900px) {
+    .masonry-grid {
+        columns: 2;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .masonry-grid {
+        columns: 1;
+    }
+
+    .contacts-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+/* Для маленьких мобильных устройств */
+@media screen and (max-width: 480px) {
+    .travel-gallery {
+        padding: 50px 0;
     }
 
     .masonry-grid {
         columns: 1;
-        max-width: 500px;
-        margin: 0 auto;
     }
 
     .gallery-item {
-        height: 350px;
+        height: 300px;
+        margin-bottom: 15px;
     }
 
     .gallery-item.tall {
-        height: 450px;
+        height: 400px;
     }
 
     .gallery-item.wide {
-        height: 300px;
+        height: 250px;
     }
 
     .gallery-item.extra-wide {
-        height: 400px;
+        height: 350px;
     }
 
     .gallery-title {
@@ -892,40 +1523,6 @@ main {
 
     .photo-info h3 {
         font-size: 1.6rem;
-    }
-
-    .travel-gallery {
-        padding: 60px 0;
-    }
-
-    .gallery-header {
-        margin-bottom: 40px;
-    }
-
-    .gallery-title {
-        font-size: 2rem;
-    }
-
-    .gallery-subtitle {
-        font-size: 1rem;
-    }
-
-    .masonry-grid {
-        padding: 0;
-    }
-
-    .gallery-item {
-        margin-bottom: 15px;
-        border-radius: 8px;
-    }
-
-    .photo-overlay {
-        padding: 20px;
-        opacity: 0.9;
-    }
-
-    .photo-info {
-        transform: translateY(0);
     }
 
     .city-section {
@@ -943,16 +1540,231 @@ main {
     .city-description {
         font-size: 1rem;
     }
-}
 
-@media screen and (max-width: 900px) {
-    .masonry-grid {
-        columns: 2;
+    /* FAQ секция */
+    .faq-section {
+        padding: 50px 10px;
+    }
+
+    .faq-title {
+        font-size: 2rem;
+    }
+
+    .faq-subtitle {
+        font-size: 1rem;
+        margin: 25px auto 35px;
+    }
+
+    .faq-card {
+        padding: 20px;
+    }
+
+    .faq-card h3 {
+        font-size: 1.3rem;
+        padding-left: 25px;
+        margin-bottom: 12px;
+    }
+
+    .faq-card h3::before {
+        font-size: 1.2rem;
+    }
+
+    .faq-card p {
+        font-size: 0.95rem;
+        padding-left: 25px;
+        line-height: 1.5;
+    }
+
+    /* Советы */
+     .tip-card {
+        padding: 20px 20px 20px 20px;
+    }
+
+    .tip-importance {
+        position: static;
+        display: inline-block;
+        margin: 0 0 15px 0;
+        padding: 4px 12px;
+        font-size: 0.75rem;
+        max-width: none;
+        width: auto;
+        order: -1; /* Перемещаем в начало flex-контейнера */
+    }
+
+    .tip-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-right: 0;
+        margin-bottom: 15px;
+        min-height: auto;
+    }
+
+    /* Вариант 1: Индикатор в заголовке */
+    .tip-card-header-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .tip-header-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex: 1;
+        min-width: 0; /* Для правильной работы с переполнением */
+    }
+
+    .tip-card-header h3 {
+        font-size: 1.3rem;
+        line-height: 1.3;
+        margin: 0;
+        flex: 1;
+        min-width: 0; /* Для правильной работы с переполнением */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .tip-icon {
+        width: 45px;
+        height: 45px;
+        flex-shrink: 0;
+    }
+
+    .tip-icon i {
+        font-size: 1.3rem;
+    }
+    .tips-title {
+        font-size: 2rem;
+    }
+
+    .tips-subtitle {
+        font-size: 1rem;
+    }
+
+    .tip-card {
+        padding: 20px;
+    }
+
+    .tip-card-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .tip-content {
+        font-size: 0.95rem;
+    }
+
+    /* Контакты */
+    .contacts-title {
+        font-size: 2rem;
+    }
+
+    .contacts-subtitle {
+        font-size: 1rem;
+    }
+
+    .contact-card,
+    .support-card,
+    .social-card {
+        padding: 20px;
+    }
+
+    .card-number {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+}
+/* Для очень маленьких экранов */
+@media screen and (max-width: 360px) {
+    .tip-importance {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+
+    .tip-card-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .tip-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .tip-icon i {
+        font-size: 1.2rem;
+    }
+
+    .tip-content {
+        font-size: 0.9rem;
     }
 }
 
-@media screen and (max-width: 600px) {
-    .masonry-grid {
-        columns: 1;
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 320px) {
+    .gallery-title,
+    .faq-title,
+    .tips-title,
+    .contacts-title {
+        font-size: 1.8rem;
+    }
+   .tip-importance {
+        display: none; /* Можно полностью скрыть на очень маленьких экранах */
+    }
+
+    .tip-card-header {
+        padding-right: 0;
+    }
+    .gallery-item {
+        height: 250px;
+    }
+
+    .gallery-item.tall {
+        height: 350px;
+    }
+
+    .gallery-item.wide {
+        height: 200px;
+    }
+
+    .gallery-item.extra-wide {
+        height: 300px;
+    }
+
+    .faq-card,
+    .tip-card,
+    .contact-card,
+    .support-card,
+    .social-card {
+        padding: 15px;
+    }
+
+    .card-number {
+        font-size: 1.2rem;
+    }
+}
+/* Для горизонтальной ориентации на мобильных */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .tip-importance {
+        top: 10px;
+        right: 10px;
+        padding: 3px 8px;
+        font-size: 0.7rem;
+        max-width: 80px;
+    }
+
+    .tip-card-header {
+        padding-right: 90px;
+    }
+}
+/* Эффект при нажатии на мобильных */
+@media (hover: none) and (pointer: coarse) {
+    .faq-card:active,
+    .tip-card:active,
+    .contact-card:active,
+    .support-card:active,
+    .social-card:active {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(65, 105, 225, 0.2);
     }
 }
