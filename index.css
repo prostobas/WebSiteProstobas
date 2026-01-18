@@ -1219,6 +1219,7 @@ main {
     font-size: 0.9rem;
 }
 
+
 /* ============ МОБИЛЬНЫЕ СТИЛИ ============ */
 
 /* Для планшетов и небольших экранов */
@@ -1474,6 +1475,7 @@ main {
         max-width: 300px;
         justify-content: center;
     }
+
 }
 @media screen and (max-width: 900px) {
     .masonry-grid {
@@ -1673,6 +1675,13 @@ main {
         font-size: 1.4rem;
         letter-spacing: 1px;
     }
+    .menu-close {
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+    }
+
 }
 /* Для очень маленьких экранов */
 @media screen and (max-width: 360px) {

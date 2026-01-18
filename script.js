@@ -345,7 +345,33 @@ function scrollToTravel() {
         });
     }
 }
+// Мобильное меню
+const menuBtn = document.querySelector('.menu-btn');
+const menuClose = document.querySelector('.menu-close'); // Эта кнопка должна существовать
+const navMenu = document.querySelector('.nav-menu');
+const menuLinks = document.querySelectorAll('.nav-menu a');
 
+menuBtn.addEventListener('click', () => {
+    navMenu.classList.add('active');
+    menuBtn.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+// Закрытие по крестику
+menuClose.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    menuBtn.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+// Закрытие по клику на ссылку
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuBtn.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+});
 // Добавляем обработчик клика на индикатор прокрутки
 document.querySelector('.scroll-arrow').addEventListener('click', scrollToTravel);
 // Анимация чисел статистики при появлении
