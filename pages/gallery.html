@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои Путешествия | TravelBlog</title>
+    <link rel="stylesheet" href="../components.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="travel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1 class="logo">TRAVEL<span style="color: #4169E1;">BLOG</span></h1>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li data-tooltip="Главная страница">
+                    <a href="../index.html" class="menu-link">
+                        <i class="fas fa-home"></i>
+                        <span>Главная</span>
+                    </a>
+                </li>
+                <li data-tooltip="Мои путешествия">
+                    <a href="travel.html" class="menu-link active">
+                        <i class="fas fa-plane"></i>
+                        <span>Путешествия</span>
+                    </a>
+                </li>
+                <li data-tooltip="Фотографии">
+                    <a href="../index.html#gallery" class="menu-link">
+                        <i class="fas fa-camera"></i>
+                        <span>Галерея</span>
+                    </a>
+                </li>
+                <li data-tooltip="Советы путешественникам">
+                    <a href="../index.html#tips" class="menu-link">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Советы</span>
+                    </a>
+                </li>
+                <li data-tooltip="Контакты для связи">
+                    <a href="../index.html#contacts" class="menu-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Контакты</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="mobile-footer">
+                <div class="social-links">
+                    <a href="#" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-btn telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="#" class="social-btn youtube">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+                <div class="menu-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">Городов</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">35</span>
+                        <span class="stat-label">Поездок</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5.5к</span>
+                        <span class="stat-label">Фото</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="travel-page">
+        <!-- Герой секция -->
+        <section class="travel-hero">
+            <img src="../Image/travel/photo_2026-01-10_17-52-15.jpg" alt="Путешествия" class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Мои Путешествия</h1>
+                <p class="hero-subtitle">Исследую Россию с 2019 года. 10 городов, десятки поездок и тысячи незабываемых моментов</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <i class="fas fa-city"></i>
+                        <span>10 городов</span>
+                    </div>
+                    <div class="hero-stat">
+                        <i class="fas fa-plane"></i>
+                        <span>35 поездок</span>
+                    </div>
+                    <div class="hero-stat">
+                        <i class="fas fa-camera"></i>
+                        <span>5500+ фото</span>
+                    </div>
+                    <div class="hero-stat">
+                        <i class="fas fa-road"></i>
+                        <span>15000+ км</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Статистика -->
+        <section class="travel-stats-section">
+            <div class="stats-container">
+                <h2 class="section-title">Статистика Путешествий</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Страна</span>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">Городов</span>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <span class="stat-number">35</span>
+                        <span class="stat-label">Поездок</span>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <span class="stat-number">5.5k</span>
+                        <span class="stat-label">Фотографий</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Посещенные города -->
+        <section class="cities-section">
+            <div class="cities-container">
+                <h2 class="section-title">Посещенные Города</h2>
+                
+                <div class="cities-tabs">
+                    <button class="city-tab active" data-city="moscow">
+                        <i class="fas fa-landmark"></i>
+                        Москва
+                    </button>
+                    <button class="city-tab" data-city="adler">
+                        <i class="fas fa-umbrella-beach"></i>
+                        Адлер
+                    </button>
+                    <button class="city-tab" data-city="samara">
+                        <i class="fas fa-water"></i>
+                        Самара
+                    </button>
+                    <button class="city-tab" data-city="tolyatti">
+                        <i class="fas fa-car"></i>
+                        Тольятти
+                    </button>
+                    <button class="city-tab" data-city="penza">
+                        <i class="fas fa-home"></i>
+                        Пенза
+                    </button>
+                </div>
+
+                <!-- Москва -->
+               <div class="cities-content active" id="moscow-content">
+    <div class="city-info">
+        <div class="city-header">
+            <div class="city-icon">
+                <i class="fas fa-landmark"></i>
+            </div>
+            <div>
+                <h3 class="city-title">Москва</h3>
+                <p class="city-subtitle">Столица России</p>
+            </div>
+        </div>
+
+        <p class="city-description">
+            Сердце России, где история встречается с современностью. Город с богатым культурным наследием,
+            впечатляющей архитектурой и динамичной жизнью.
+        </p>
+
+        <div class="city-details">
+            <div class="detail-item">
+                <span class="detail-label">Посещений</span>
+                <span class="detail-value">4 раза</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Первый раз</span>
+                <span class="detail-value">Май 2025</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Последний раз</span>
+                <span class="detail-value">январь 2026</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Фотографий</span>
+                <span class="detail-value">250+</span>
+            </div>
+        </div>
+
+        <div class="city-highlights">
+            <h4 style="color: #FFFFFF; margin-bottom: 15px; font-size: 1.2rem;">Что посетил:</h4>
+            <div class="trip-details">
+                <span class="trip-detail">
+                    <i class="fas fa-monument"></i>
+                    Красная площадь
+                </span>
+                <span class="trip-detail">
+                    <i class="fas fa-fortress"></i>
+                    Кремль
+                </span>
+                <span class="trip-detail">
+                    <i class="fas fa-building"></i>
+                    Москва-Сити
+                </span>
+                <span class="trip-detail">
+                    <i class="fas fa-parking"></i>
+                    ВДНХ
+                </span>
+
+                 <span class="trip-detail">
+                    <i class="fas fa-parking"></i>
+                    Тверская площадь
+                </span>
+
+                 <span class="trip-detail">
+                    <i class="fas fa-parking"></i>
+                    Старый арбат
+                </span>
+                <span class="trip-detail">
+                    <i class="fas fa-parking"></i>
+                    Новый арбат
+                </span>
+            </div>
+        </div>
+
+        <!-- ГАЛЕРЕЯ ВНУТРИ БЛОКА -->
+        <div class="city-gallery-container">
+            <h4 style="color: #FFFFFF; margin-bottom: 15px; font-size: 1.2rem;">Фотогалерея:</h4>
+            <div class="city-gallery">
+                <div class="city-photo">
+                    <img src="../Image/travel/photo_2026-01-10_17-50-16.jpg" alt="Москва">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/photo_2026-01-10_17-51-29.jpg" alt="Москва">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/photo_2026-01-10_17-50-50.jpg" alt="Москва">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/photo_2026-01-10_17-51-26.jpg" alt="Москва">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+             <!-- Адлер -->
+<div class="cities-content" id="adler-content">
+    <div class="city-info">
+        <div class="city-header">
+            <div class="city-icon">
+                <i class="fas fa-umbrella-beach"></i>
+            </div>
+            <div>
+                <h3 class="city-title">Адлер</h3>
+                <p class="city-subtitle">Черноморское побережье • 1 посещение • 1200+ фотографий</p>
+            </div>
+        </div>
+
+        <p class="city-description">
+            Курортный район Сочи, ворота в горы Кавказа. Адлер — это уникальное сочетание морского отдыха
+            на тёплых черноморских пляжах, современных олимпийских объектов и живописной субтропической
+            природы. За три поездки я смог оценить всё разнообразие этого места: от расслабленного
+            пляжного отдыха под южным солнцем до активных походов в горы Красной Поляны. Особое
+            впечатление производит контраст между современной инфраструктурой Олимпийского парка и
+            дикой природой горных ущелий.
+        </p>
+
+        <div class="city-details">
+            <div class="detail-item">
+                <span class="detail-label">Посещений</span>
+                <span class="detail-value">1 раз</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Первый раз</span>
+                <span class="detail-value">Август 2025</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Последний раз</span>
+                <span class="detail-value">Август 2025</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Фотографий</span>
+                <span class="detail-value">1200+</span>
+            </div>
+        </div>
+
+        <div class="city-highlights">
+            <h4 class="highlights-title">Основные места посещения:</h4>
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <i class="fas fa-water"></i>
+                    <span>Черное море</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-medal"></i>
+                    <span>Олимпийский парк</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-tree"></i>
+                    <span>Сочинский дендрарий</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-mountain"></i>
+                    <span>Красная Поляна</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-train"></i>
+                    <span>Ласточкино гнездо</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-fish"></i>
+                    <span>Дельфинарий</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="city-gallery-container">
+            <h4 class="city-gallery-title">Фотогалерея Адлера</h4>
+            <div class="city-gallery">
+                <div class="city-photo">
+                    <img src="../Image/travel/adler1.jpg" alt="Адлер - Пляж">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/adler2.jpg" alt="Адлер - Олимпийский парк">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/adler3.jpg" alt="Адлер - Горы">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/adler4.jpg" alt="Адлер - Набережная">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Самара -->
+<div class="cities-content" id="samara-content">
+    <div class="city-info">
+        <div class="city-header">
+            <div class="city-icon">
+                <i class="fas fa-water"></i>
+            </div>
+            <div>
+                <h3 class="city-title">Самара</h3>
+                <p class="city-subtitle">Город на Волге • 1 посещение • 100+ фотографий</p>
+            </div>
+        </div>
+
+        <p class="city-description">
+            Город с самой длинной набережной в России, расположенный на живописных берегах Волги.
+            Самара поражает своим размахом и богатой историей, особенно связанной с космической
+            промышленностью. За четыре поездки я успел проникнуться духом этого волжского города:
+            от неспешных прогулок по набережной с панорамными видами на реку до изучения
+            промышленного наследия и подземных бункеров. Особое впечатление оставляет контраст
+            между советской архитектурой и современными городскими пространствами.
+        </p>
+
+        <div class="city-details">
+            <div class="detail-item">
+                <span class="detail-label">Посещений</span>
+                <span class="detail-value">1 раз</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Первый раз</span>
+                <span class="detail-value">Июль 2023</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Последний раз</span>
+                <span class="detail-value">Июль 2023</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Фотографий</span>
+                <span class="detail-value">100+</span>
+            </div>
+        </div>
+
+        <div class="city-highlights">
+            <h4 class="highlights-title">Ключевые достопримечательности:</h4>
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <i class="fas fa-road"></i>
+                    <span>Набережная Волги</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-rocket"></i>
+                    <span>Площадь Славы</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-mountain"></i>
+                    <span>Жигулёвские горы</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-university"></i>
+                    <span>Бункер Сталина</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-building"></i>
+                    <span>Самарский театр</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-industry"></i>
+                    <span>Космические музеи</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="city-gallery-container">
+            <h4 class="city-gallery-title">Фотогалерея Самары</h4>
+            <div class="city-gallery">
+                <div class="city-photo">
+                    <img src="../Image/travel/samara1.jpg" alt="Самара - Набережная Волги">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/samara2.jpg" alt="Самара - Площадь Славы">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/samara3.jpg" alt="Самара - Жигулёвские горы">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/samara4.jpg" alt="Самара - Архитектура">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Тольятти -->
+<div class="cities-content" id="tolyatti-content">
+    <div class="city-info">
+        <div class="city-header">
+            <div class="city-icon">
+                <i class="fas fa-car"></i>
+            </div>
+            <div>
+                <h3 class="city-title">Тольятти</h3>
+                <p class="city-subtitle">Автомобильная столица • 1 посещение • 50+ фотографий</p>
+            </div>
+        </div>
+
+        <p class="city-description">
+            Город, построенный для работников легендарного АвтоВАЗа, с уникальной советской
+            планировкой и современной архитектурой. Тольятти — это настоящий музей под открытым
+            небом, где каждая улица рассказывает историю автомобилестроения в СССР. За шесть поездок
+            я смог глубоко изучить этот индустриальный гигант: от огромных цехов автозавода до
+            необычных технических музеев. Особенно впечатляет контраст между промышленными
+            пейзажами и живописными волжскими просторами.
+        </p>
+
+        <div class="city-details">
+            <div class="detail-item">
+                <span class="detail-label">Посещений</span>
+                <span class="detail-value">1 раз</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Первый раз</span>
+                <span class="detail-value">Июль 2023</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Последний раз</span>
+                <span class="detail-value">Июль 2023</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Фотографий</span>
+                <span class="detail-value">50+</span>
+            </div>
+        </div>
+
+        <div class="city-highlights">
+            <h4 class="highlights-title">Основные места посещения:</h4>
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <i class="fas fa-industry"></i>
+                    <span>АвтоВАЗ</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-museum"></i>
+                    <span>Технический музей</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-water"></i>
+                    <span>Волжская набережная</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-square"></i>
+                    <span>Площадь Свободы</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-university"></i>
+                    <span>Музей истории ВАЗа</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-park"></i>
+                    <span>Парк Победы</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="city-gallery-container">
+            <h4 class="city-gallery-title">Фотогалерея Тольятти</h4>
+            <div class="city-gallery">
+                <div class="city-photo">
+                    <img src="../Image/travel/tolyatti1.jpg" alt="Тольятти - АвтоВАЗ">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/tolyatti2.jpg" alt="Тольятти - Технический музей">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/tolyatti3.jpg" alt="Тольятти - Волжская набережная">
+                </div>
+                <div class="city-photo">
+                    <img src="../Image/travel/tolyatti4.jpg" alt="Тольятти - Архитектура">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Пенза -->
+<div class="cities-content" id="penza-content">
+    <div class="city-info">
+        <div class="city-header">
+            <div class="city-icon">
+                <i class="fas fa-home"></i>
+            </div>
+            <div>
+                <h3 class="city-title">Пенза</h3>
+                <p class="city-subtitle">Родной город • С рождения • 2000+ фотографий</p>
+            </div>
+        </div>
+
+        <p class="city-description">
+            Город на семи живописных холмах с богатой историей, литературными традициями и
+            уютными парками. Пенза — это место, где всё начинается и куда всегда возвращаюсь.
+            Здесь каждый уголок пропитан историей: от первых поселенцев XVII века до современных
+            культурных пространств. Как коренной житель, я наблюдал, как город преображается,
+            сохраняя при этом своё уникальное очарование. Особенно ценю гармоничное сочетание
+            старинной архитектуры, зелёных насаждений и современных арт-объектов.
+        </p>
+
+        <div class="city-details">
+            <div class="detail-item">
+                <span class="detail-label">Проживаю</span>
+                <span class="detail-value">С рождения</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Основан</span>
+                <span class="detail-value">1663 год</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Фотографий</span>
+                <span class="detail-value">2000+</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Любимых мест</span>
+                <span class="detail-value">20+</span>
+            </div>
+        </div>
+
+        <div class="city-highlights">
+            <h4 class="highlights-title">Любимые места в городе:</h4>
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <i class="fas fa-park"></i>
+                    <span>Набережная Суры</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-theater-masks"></i>
+                    <span>Театр Мейерхольда</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-monument"></i>
+                    <span>Памятник Первопоселенцу</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-tree"></i>
+                    <span>Ботанический сад</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-university"></i>
+                    <span>Краеведческий музей</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-church"></i>
+                    <span>Спасский собор</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="city-gallery-container">
+            <h4 class="city-gallery-title">Фотогалерея Пензы</h4>
+            <div class="city-gallery">
+                <div class="city-photo">
+                    <img src="https://images.unsplash.com/photo-1592400420056-b5e4d6f97b9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Пенза - Набережная Суры">
+                </div>
+                <div class="city-photo">
+                    <img src="https://images.unsplash.com/photo-1592400420056-b5e4d6f97b9d?ixlib=rb-1.2.1&auto=format&fit=crop&w-800&q=80" alt="Пенза - Центральная площадь">
+                </div>
+                <div class="city-photo">
+                    <img src="https://images.unsplash.com/photo-1592400420056-b5e4d6f97b9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Пенза - Старая архитектура">
+                </div>
+                <div class="city-photo">
+                    <img src="https://images.unsplash.com/photo-1592400420056-b5e4d6f97b9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Пенза - Парки">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+
+        <!-- Планируемые поездки -->
+        <section class="planned-section">
+            <div class="planned-container">
+                <h2 class="section-title">Планируемые Поездки</h2>
+                <div class="planned-grid">
+                   <!-- Карелия -->
+                    <div class="trip-card">
+                        <div class="trip-map"></div>
+                        <div class="trip-header">
+                            <span class="trip-status">Запланировано</span>
+                            <h3 class="trip-title">Карелия</h3>
+                            <p class="trip-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                Апрель 2026
+                            </p>
+                        </div>
+                        <div class="trip-content">
+                            <p class="trip-description">
+                                Земля тысячи озёр, хвойных лесов и северной природы.
+                                Планирую походы по национальным паркам и знакомство с культурой карел.
+                            </p>
+                            <div class="trip-details">
+                                <span class="trip-detail">
+                                    <i class="fas fa-water"></i>
+                                    Ладожское озеро
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-tree"></i>
+                                    Хвойные леса
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-hiking"></i>
+                                    Походы
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-fish"></i>
+                                    Рыбалка
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-campground"></i>
+                                    Кемпинг
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-camera"></i>
+                                    Фотоохота
+                                </span>
+                            </div>
+                            <div class="trip-counter">Путешествия</div>
+                        </div>
+                    </div>
+
+                    <!-- Санкт-Петербург -->
+                    <div class="trip-card">
+                        <div class="trip-map"></div>
+                        <div class="trip-header">
+                            <span class="trip-status">В планах</span>
+                            <h3 class="trip-title">Санкт-Петербург</h3>
+                            <p class="trip-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                Август 2026
+                            </p>
+                        </div>
+                        <div class="trip-content">
+                            <p class="trip-description">
+                                Культурная столица России, город белых ночей и разводных мостов.
+                                Хочу посетить Эрмитаж и пройтись по набережной Невы.
+                            </p>
+                            <div class="trip-details">
+                                <span class="trip-detail">
+                                    <i class="fas fa-university"></i>
+                                    Эрмитаж
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-church"></i>
+                                    Исаакиевский собор
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-bridge"></i>
+                                    Разводные мосты
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-water"></i>
+                                    Реки и каналы
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-theater-masks"></i>
+                                    Театры
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-palette"></i>
+                                    Музеи
+                                </span>
+                            </div>
+                            <div class="trip-counter">Путешествия</div>
+                        </div>
+                    </div>
+
+                    <!-- Казань -->
+                    <div class="trip-card">
+                        <div class="trip-map"></div>
+                        <div class="trip-header">
+                            <span class="trip-status">В планах</span>
+                            <h3 class="trip-title">Казань</h3>
+                            <p class="trip-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                Лето 2027
+                            </p>
+                        </div>
+                        <div class="trip-content">
+                            <p class="trip-description">
+                                Горный край с чистейшими озёрами и уникальной природой.
+                                Мечтаю о походе в горы и знакомстве с культурой алтайцев.
+                            </p>
+                            <div class="trip-details">
+                                <span class="trip-detail">
+                                    <i class="fas fa-mountain"></i>
+                                    Горные хребты
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-water"></i>
+                                    Телецкое озеро
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-horse"></i>
+                                    Конные походы
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-campground"></i>
+                                    Кемпинг
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-hiking"></i>
+                                    Трекинг
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-camera"></i>
+                                    Пейзажи
+                                </span>
+                            </div>
+                            <div class="trip-counter">Путешествия</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Хронология -->
+        <section class="timeline-section">
+            <div class="timeline-container">
+                <h2 class="section-title">Хронология Путешествий</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2002</div>
+                        <h3 class="timeline-title">Начало пути</h3>
+                        <p class="timeline-description">
+                            Первые поездки по Пензенской области. Знакомство с родным краем, 
+                            его историей и природой.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2013</div>
+                        <h3 class="timeline-title">Путешествие в Анапу</h3>
+                        <p class="timeline-description">
+                            Локальные поездки, открытие для себя малых городов России. 
+                            Углублённое изучение истории и архитектуры.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021-2023</div>
+                        <h3 class="timeline-title">Первые крупные города</h3>
+                        <p class="timeline-description">
+                            Посещение Тольятти, Самары, Иваново. Знакомство с волжскими городами,
+                            их промышленностью и культурой.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3 class="timeline-title">Расширение географии</h3>
+                        <p class="timeline-description">
+                           Поездки в город Ульяновск.
+                            Начало систематического ведения фотоархива.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3 class="timeline-title">Столица</h3>
+                        <p class="timeline-description">
+                            Первая поездка в Москву. Знакомство со столичными достопримечательностями, 
+                            музеями и современной архитектурой.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3 class="timeline-title">Чёрное море</h3>
+                        <p class="timeline-description">
+                            Первая поездка в Адлер и Сочи. Знакомство с Черноморским побережьем,
+                            олимпийскими объектами и горными курортами.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3 class="timeline-title">Повторные визиты</h3>
+                        <p class="timeline-description">
+                            Повторные поездки в полюбившиеся города. Глубокое изучение культуры 
+                            и создание фоторепортажей.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2026+</div>
+                        <h3 class="timeline-title">Новые горизонты</h3>
+                        <p class="timeline-description">
+                            Планы на будущее: Карелия, Санкт-Петербург, Казань.
+                            Развитие блога и создание путеводителей.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-bottom">
+                <p>&copy; 2024 PROSTOBAS. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+    <script src="travel.js"></script>
+</body>
+</html>
